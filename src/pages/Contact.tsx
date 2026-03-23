@@ -62,17 +62,13 @@ export const Contact = () => {
             </div>
 
             {/* Map */}
-            <div className="mt-12 rounded-3xl overflow-hidden h-[300px] border-4 border-gray-100 shadow-inner bg-gray-200 relative">
-              <div className="absolute inset-0 flex items-center justify-center text-gray-500 flex-col gap-2">
-                <MapPin size={48} className="text-school-primary" />
-                <p className="font-bold">Maclear, South Africa</p>
-                <p className="text-sm">1 Murray Street</p>
-              </div>
+            <div className="mt-12 rounded-3xl overflow-hidden h-[400px] border-4 border-gray-100 shadow-md bg-gray-100 relative">
               <iframe 
                 title="School Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13568.23456789!2d28.0000!3d-31.6667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDQwJzAwLjAiUyAyOMKwMDAnMDAuMCJF!5e0!3m2!1sen!2sza!4v1234567890"
-                className="w-full h-full border-0 opacity-50"
+                src="https://maps.google.com/maps?q=Maclear%20High%20School,%201%20Murray%20Street,%20Maclear,%205480,%20South%20Africa&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                className="w-full h-full border-0"
                 loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
             </div>
           </motion.div>
