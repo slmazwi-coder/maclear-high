@@ -32,7 +32,7 @@ export const Navbar = () => {
               />
               <div className="hidden md:block">
                 <span className="text-xl font-bold text-black block leading-none">Maclear High</span>
-                <span className="text-sm font-semibold text-school-primary uppercase tracking-tighter">Academic & Technical</span>
+                <span className="text-sm font-semibold text-school-primary uppercase tracking-tighter">School</span>
               </div>
             </Link>
           </div>

@@ -1,4 +1,4 @@
-// Storage utility — localStorage wrapper for Kwa Komani Technical High School
+// Storage utility — localStorage wrapper for Maclear High School
 
 export interface NewsItem {
   id: string;
@@ -189,14 +189,14 @@ const defaultNews: NewsItem[] = [
     id: '1',
     title: "2026 Admissions Open",
     date: "March 23, 2026",
-    content: "Kwa Komani Technical High School is now accepting applications for the 2026 academic year. We invite all prospective technical and skilled learners to apply.",
+    content: "Maclear High School is now accepting applications for the 2026 academic year. We invite all prospective learners to apply and join our community of excellence.",
     image: ""
   },
   {
     id: '2',
-    title: "National Music Competition Success",
+    title: "Regional Choral Success",
     date: "March 20, 2026",
-    content: "Our music department has once again proven to be a force to be reckoned with, securing top honours in the regional championships.",
+    content: "Our school choir has once again secured top honors in the regional championships, continuing our tradition of vocal excellence.",
     image: ""
   }
 ];
@@ -213,10 +213,10 @@ export const setApplications = (items: Application[]) => setItems('admin_applica
 
 // Contact
 const defaultContact: ContactInfo = {
-  address: '1874 Pelem Road, Mlungisi Township, Queenstown, 5320',
-  postalAddress: 'P O Box 1159, Queenstown, 5320',
-  phone: '0458382074',
-  email: 'info@kwakomani.edu.za',
+  address: 'Murray Street, Maclear, 5480, Eastern Cape',
+  postalAddress: 'P.O. Box 29, Maclear, 5480',
+  phone: '045 932 1032',
+  email: 'maclearhigh@telkomsa.net',
   monThu: '07:30 - 15:30',
   friday: '07:30 - 13:30',
   weekend: 'Closed',
@@ -227,42 +227,43 @@ export const setContact = (info: ContactInfo) => setObject('admin_contact', info
 // About
 const defaultAbout: AboutInfo = {
   historyParagraphs: [
-    'Established in 1988, Kwa Komani Technical High School has been a cornerstone of technical education in Queenstown for over three decades. Our institution was founded with a clear vision: to provide high-quality skilled and technical training to the learners of Mlungisi and the greater Queenstown area.',
-    'As a premier Technical High School, we offer a wide range of technical subjects designed to equip our learners with practical skills that meet the demands of a modern economy. From engineering and technology to skilled trades, we prepare our students for both higher education and direct entry into specialized industries.',
-    'Kwa Komani is not just about technical skills; we are also a hub of cultural excellence. Our school is renowned for its national success in music competitions, fostering a holistic environment where technical prowess meets creative genius.',
+    'Maclear High School has been a cornerstone of education in the Joe Gqabi District for decades. Our institution is dedicated to providing high-quality academic and holistic training to the learners of Maclear and surrounding areas.',
+    'We offer a wide range of academic subjects designed to equip our learners with the knowledge and skills needed for higher education and successful careers. Our commitment to excellence is reflected in our consistent results and the achievements of our alumni.',
+    'Maclear High is also a hub of cultural and sporting excellence. Our school is renowned for its success in choral music competitions and its passionate sport participation, fostering an environment where every talent is nurtured.',
   ],
   principalName: '[Principal Name]',
   principalTitle: 'School Principal',
   principalMessage: [
-    'Welcome to Kwa Komani Technical High School (KHK). Since our founding in 1988, we have remained true to our mission of producing skilled, technically proficient, and well-rounded citizens.',
-    'At Kwa Komani, we believe in the power of "Education for Empowerment." Our technical subjects provide the foundation for successful careers in engineering, construction, and technology. I invite you to explore our portal and learn more about our commitment to excellence.',
+    'Welcome to Maclear High School (MHS). Our mission is to produce well-rounded, responsible, and excellently educated citizens who are ready to contribute to society.',
+    'At Maclear High, we believe in "Aiming High" (Mik Hoog). Our dedicated staff and rich extracurricular program provide the foundation for our students to achieve their full potential. I invite you to explore our portal and share in our journey of excellence.',
   ],
   deputyName: '[Deputy Name]',
   deputyTitle: 'Deputy Principal',
-  establishedYear: '1988',
-  schoolType: 'Technical High School',
+  establishedYear: '1980',
+  schoolType: 'High School',
 };
 export const getAbout = () => getObject<AboutInfo>('admin_about', defaultAbout);
 export const setAbout = (info: AboutInfo) => setObject('admin_about', info);
 
 // Policy
 const defaultPolicy: PolicyInfo = {
-  introduction: 'Kwa Komani Technical High School maintains a strictly disciplined environment to ensure safe and effective technical training.',
+  introduction: 'Maclear High School maintain a disciplined environment to ensure safe and effective learning for all students.',
   sections: [
-    {
-      title: 'Workshop Safety',
-      content: [
-        'Learners must wear full safety gear (PPE) in all technical workshops.',
-        'Strict adherence to instructor guidance is mandatory when operating machinery.',
-        'No learner may enter a workshop without supervision.'
-      ]
-    },
     {
       title: 'Code of Conduct',
       content: [
-        'Punctuality is essential for all academic and technical sessions.',
-        'Respect for school property and technical equipment is paramount.',
+        'Punctuality is essential for all academic and extracurricular sessions.',
+        'Respect for school property and the environment is paramount.',
+        'Full school uniform must be worn with pride at all times.',
         'Bullying and harassment are strictly prohibited.'
+      ]
+    },
+    {
+      title: 'Academic Integrity',
+      content: [
+        'Students are expected to maintain high standards of honesty in all assessments.',
+        'Regular attendance and active participation in class are key to success.',
+        'Homework and projects must be completed on time.'
       ]
     }
   ],
@@ -271,11 +272,11 @@ const defaultPolicy: PolicyInfo = {
 export const getPolicy = () => getObject<PolicyInfo>('admin_policy', defaultPolicy);
 export const setPolicy = (info: PolicyInfo) => setObject('admin_policy', info);
 
-// Activities (Added Music focus as requested)
+// Activities
 const defaultActivities: Activity[] = [
-  { id: '1', name: 'Choral Music', category: 'Culture', description: 'Our award-winning choir is a national champion, known for complex harmonies and excellence in vocal performance.', image: '' },
-  { id: '2', name: 'School Band', category: 'Culture', description: 'Developing instrumental talents and performing at key school and community events.', image: '' },
-  { id: '3', name: 'Technical Skills Expo', category: 'Technical', description: 'An annual showcase of our learners technical projects and engineering designs.', image: '' },
+  { id: '1', name: 'Choral Music', category: 'Culture', description: 'Our award-winning choir is a regional champion, known for excellence in vocal performance and complex harmonies.', image: '' },
+  { id: '2', name: 'Rugby', category: 'Sports', description: 'A dominant sport at Maclear High, with teams competing at provincial levels with passion and pride.', image: '' },
+  { id: '3', name: 'Netball', category: 'Sports', description: 'Our netball teams show exceptional skill and dedication, achieving great results in local leagues.', image: '' },
 ];
 export const getActivities = () => getItems<Activity>('admin_activities').length ? getItems<Activity>('admin_activities') : defaultActivities;
 export const setActivities = (items: Activity[]) => setItems('admin_activities', items);
@@ -283,18 +284,18 @@ export const setActivities = (items: Activity[]) => setItems('admin_activities',
 // Results by year
 const defaultResults: Record<string, YearResults> = {
   "2025": {
-    overall: 88.9,
+    overall: 85.5,
     bachelor: 0,
     bachelorRate: 0,
     distinctions: 0,
     wrote: 0,
     subjects: [
-      { subject: "Engineering Graphics & Design", rate: 100 },
-      { subject: "Mechanical Technology", rate: 100 },
-      { subject: "Electrical Technology", rate: 100 },
-      { subject: "Civil Technology", rate: 100 },
-      { subject: "Technical Mathematics", rate: 100 },
-      { subject: "Technical Sciences", rate: 100 },
+      { subject: "Mathematics", rate: 90 },
+      { subject: "Physical Sciences", rate: 85 },
+      { subject: "English HL", rate: 95 },
+      { subject: "Life Sciences", rate: 88 },
+      { subject: "Geography", rate: 92 },
+      { subject: "Accounting", rate: 84 },
     ]
   }
 };
@@ -303,7 +304,7 @@ export const setResultsByYear = (year: string, data: YearResults) => setObject(`
 
 // Auth
 export const login = (password: string): boolean => {
-  if (password === 'komani 2026') {
+  if (password === 'maclear 2026') {
     localStorage.setItem('admin_auth', 'true');
     return true;
   }

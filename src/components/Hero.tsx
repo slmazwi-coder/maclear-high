@@ -3,15 +3,15 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const slides = [
-  { url: "/Hero/Hero 1.jpg", caption: "Academic Excellence Since 1988" },
-  { url: "/Hero/Hero 2.jpg", caption: "Skilled for the Future" },
-  { url: "/Hero/Hero 3.jpg", caption: "Engineering Your Dreams" },
+  { url: "/Hero/Hero 1.jpg", caption: "Academic Excellence Since 1980" },
+  { url: "/Hero/Hero 2.jpg", caption: "Developing Future Leaders" },
+  { url: "/Hero/Hero 3.jpg", caption: "Excellence in Every Field" },
   { url: "/Hero/Hero 4.jpg", caption: "Maclear High School" },
-  { url: "/Hero/Hero 5.jpg", caption: "Where Skills Meet Vision" },
+  { url: "/Hero/Hero 5.jpg", caption: "Aiming High • Mik Hoog" },
   { url: "/Hero/Hero 6.jpg", caption: "Regional Choral Champions" },
   { url: "/Hero/Hero 7.jpg", caption: "Pride of Maclear" },
-  { url: "/Hero/Hero 8.jpg", caption: "Hands-On Skilled Training" },
-  { url: "/Hero/Hero 9.jpg", caption: "Excellence in Every Field" },
+  { url: "/Hero/Hero 8.jpg", caption: "Passion in Sport" },
+  { url: "/Hero/Hero 9.jpg", caption: "Nurturing Talent & Vision" },
 ];
 
 export const Hero = () => {

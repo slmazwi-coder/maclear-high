@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
-import { User, Quote, Wrench, Settings, Music } from 'lucide-react';
+import { User, Quote, BookOpen, GraduationCap, Music } from 'lucide-react';
 import { getAbout, type AboutInfo } from '../admin/utils/storage';
 
 export const About = () => {
@@ -12,7 +12,7 @@ export const About = () => {
   return (
     <div className="py-20 bg-white min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="section-title">About Kwa Komani Technical High School</h1>
+        <h1 className="section-title">About Maclear High School</h1>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
           <motion.div
@@ -28,12 +28,12 @@ export const About = () => {
             </div>
             <div className="mt-12 flex gap-4">
                <div className="flex flex-col items-center p-4 bg-gray-50 rounded-2xl border-t-4 border-school-primary">
-                  <Wrench className="text-school-primary mb-2" size={32} />
-                  <span className="font-bold text-sm uppercase">Technical</span>
+                  <BookOpen className="text-school-primary mb-2" size={32} />
+                  <span className="font-bold text-sm uppercase">Academic</span>
                </div>
                <div className="flex flex-col items-center p-4 bg-gray-50 rounded-2xl border-t-4 border-black">
-                  <Settings className="text-black mb-2" size={32} />
-                  <span className="font-bold text-sm uppercase">Skilled</span>
+                  <GraduationCap className="text-black mb-2" size={32} />
+                  <span className="font-bold text-sm uppercase">Excellence</span>
                </div>
                <div className="flex flex-col items-center p-4 bg-gray-50 rounded-2xl border-t-4 border-school-primary">
                   <Music className="text-school-primary mb-2" size={32} />
@@ -49,7 +49,7 @@ export const About = () => {
           >
             <img 
               src="/About/Campus.jpg" 
-              alt="Kwa Komani Technical High School Campus" 
+              alt="Maclear High School Campus" 
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
@@ -88,27 +88,27 @@ export const About = () => {
           </div>
         </section>
 
-        {/* Technical focus section */}
+        {/* Academic focus section */}
         <section className="py-16 mb-16">
            <div className="bg-gray-50 rounded-3xl p-12 border-2 border-dashed border-gray-200">
-              <h2 className="text-3xl font-black text-black mb-8 text-center uppercase tracking-tighter">A Specialized Technical Institution</h2>
+              <h2 className="text-3xl font-black text-black mb-8 text-center uppercase tracking-tighter">Academic & Holistic Excellence</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-gray-700">
                  <div>
                     <h3 className="text-xl font-bold text-school-primary mb-4 flex items-center gap-2">
-                       <Wrench size={24} /> Skilled Trades
+                       <BookOpen size={24} /> Quality Teaching
                     </h3>
                     <p className="leading-relaxed">
-                       Kwa Komani Technical High School is renowned for providing intensive skilled training across various trades. 
-                       Our specialized workshops are equipped with modern machinery to ensure our learners are ready for industry demands.
+                       Maclear High School is dedicated to providing high-quality tuition across all learning areas. 
+                       Our experienced educators focus on developing critical thinking and preparing learners for the challenges of tomorrow.
                     </p>
                  </div>
                  <div>
                     <h3 className="text-xl font-bold text-black mb-4 flex items-center gap-2">
-                       <Settings size={24} /> Technical Sciences
+                       <GraduationCap size={24} /> Future Ready
                     </h3>
                     <p className="leading-relaxed">
-                       Our curriculum balances academic excellence with technical proficiency. We offer Technical Mathematics 
-                       and Technical Sciences to provide the theoretical backbone for engineering and innovation.
+                       Our curriculum is designed to open doors to tertiary education and various career paths. 
+                       Through rigorous academic standards and support, we ensure our students are "Aiming High" in every aspect.
                     </p>
                  </div>
               </div>
@@ -131,12 +131,12 @@ export const About = () => {
             <div className="rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-gray-50 max-w-5xl mx-auto group">
               <img 
                 src="/About/RCL STudent Council.jpg" 
-                alt="Kwa Komani Technical High School RCL Student Council" 
+                alt="Maclear High School RCL Student Council" 
                 className="w-full h-auto object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700"
               />
             </div>
             <p className="text-gray-500 mt-8 text-xl italic max-w-3xl mx-auto font-medium">
-              Our Representative Council of Learners — empowering technical leaders of tomorrow since 1988.
+               Our Representative Council of Learners — empowering the leaders of tomorrow.
             </p>
           </motion.div>
         </section>
