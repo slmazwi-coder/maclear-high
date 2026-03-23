@@ -3,9 +3,9 @@ import { motion } from 'motion/react';
 import { Award, TrendingUp, Users } from 'lucide-react';
 
 const stats = [
-  { label: 'Matric Pass Rate', value: '75.4%', icon: TrendingUp },
-  { label: 'Bachelors Pass', value: '51.8%', icon: Award },
-  { label: 'Subject Distinctions', value: '125', icon: Users },
+  { label: 'Matric Pass Rate', value: '97.2%', icon: TrendingUp },
+  { label: 'Bachelors Pass', value: '42%', icon: Award },
+  { label: 'Subject Distinctions', value: '25', icon: Users },
 ];
 
 export const Home = () => {

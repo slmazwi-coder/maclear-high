@@ -69,11 +69,11 @@ const resultsData = {
 } as const;
 
 const bestEverStudents = [
-  { name: "[NAME 1]", title: "National Top Achiever", year: "2018", image: "https://images.unsplash.com/photo-1523240695661-92135f3d325e?q=80&w=2000&auto=format&fit=crop", desc: "Achieved excellence in Mathematics and Physical Sciences" },
-  { name: "[NAME 2]", title: "Provincial Number 1", year: "2021", image: "https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2000&auto=format&fit=crop", desc: "7 Distinctions, top student in Province" },
-  { name: "[NAME 3]", title: "Top Achiever in Commerce", year: "2019", image: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=2000&auto=format&fit=crop", desc: "Excellence in Accounting and Economics" },
-  { name: "[NAME 4]", title: "Overall Distinction", year: "2022", image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2000&auto=format&fit=crop", desc: "8 Distinctions with 95% average" },
-  { name: "[NAME 5]", title: "Provincial Top 5", year: "2016", image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2000&auto=format&fit=crop", desc: "Exceptional performance in Sciences" },
+  { name: "[NAME 1]", title: "National Top Achiever", year: "2018", image: "", desc: "Achieved excellence in Mathematics and Physical Sciences" },
+  { name: "[NAME 2]", title: "Provincial Number 1", year: "2021", image: "", desc: "7 Distinctions, top student in Province" },
+  { name: "[NAME 3]", title: "Top Achiever in Commerce", year: "2019", image: "", desc: "Excellence in Accounting and Economics" },
+  { name: "[NAME 4]", title: "Overall Distinction", year: "2022", image: "", desc: "8 Distinctions with 95% average" },
+  { name: "[NAME 5]", title: "Provincial Top 5", year: "2016", image: "", desc: "Exceptional performance in Sciences" },
 ];
 
 const topAchieversByYear: Record<string, {name: string, achievement: string, image: string}[]> = {

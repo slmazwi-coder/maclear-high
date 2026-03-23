@@ -76,7 +76,11 @@ export const Sports = () => {
                 </div>
                 
                 <div className="aspect-video bg-gray-200 rounded-2xl overflow-hidden shadow-2xl relative border-4 border-white flex items-center justify-center text-gray-400">
-                  {currentSport.image ? (
+                  {currentSport.name.toLowerCase() === 'rugby' ? (
+                    <img src="/Sports/rugby first team.jpg" alt="Rugby" className="w-full h-full object-cover" />
+                  ) : currentSport.name.toLowerCase() === 'netball' ? (
+                    <img src="/Sports/Netball first team.jpg" alt="Netball" className="w-full h-full object-cover" />
+                  ) : currentSport.image ? (
                     <img src={currentSport.image} alt={currentSport.name} className="w-full h-full object-cover" />
                   ) : (
                     <div className="text-center font-bold tracking-widest uppercase">

@@ -53,8 +53,8 @@ export const Hero = () => {
           <img
             src={slides[currentIndex].url}
             alt={slides[currentIndex].caption}
-            className="h-full w-full object-cover object-center opacity-40"
-            onError={(e) => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1523050853051-be991f85a6ad?q=80&w=2000&auto=format&fit=crop'; }}
+            className="h-full w-full object-cover object-top opacity-40"
+            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
           />
           <div className="absolute bottom-20 left-0 right-0 text-center z-20">
             <motion.p 
