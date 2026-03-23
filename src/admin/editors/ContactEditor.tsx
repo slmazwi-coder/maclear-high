@@ -31,7 +31,7 @@ export const ContactEditor = () => {
           <button 
             onClick={save} 
             disabled={isScanning} 
-            className="flex items-center gap-2 bg-school-green text-white px-6 py-2 rounded-xl font-medium hover:bg-green-800 disabled:opacity-50"
+            className="flex items-center gap-2 bg-school-primary text-white px-6 py-2 rounded-xl font-medium hover:bg-green-800 disabled:opacity-50"
           >
             {isScanning ? (
               <><Loader2 size={18} className="animate-spin" /> Scanning...</>

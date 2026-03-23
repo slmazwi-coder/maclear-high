@@ -208,7 +208,7 @@ export const SchoolFees = () => {
                    <div className="flex items-center gap-4 p-6 bg-red-50 rounded-2xl border border-red-100">
                       <ShieldCheck className="text-school-primary shrink-0" size={32} />
                       <p className="text-sm font-medium text-gray-700 leading-snug">
-                         This is a system-generated document for Kwa Komani Technical High School. Use the Bank Details on the left for payment.
+                         This is a system-generated document for Maclear High School. Use the Bank Details on the left for payment.
                       </p>
                    </div>
                 </div>

@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { SportResultBoard } from './SportResultBoard';
 
 const slides = [
   {
-    url: "https://images.unsplash.com/photo-1523050853051-be991f85a6ad?q=80&w=2000&auto=format&fit=crop",
+    url: "/Hero/hero1.jpg",
     caption: "Excellence in Education"
   },
   {
-    url: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2000&auto=format&fit=crop",
+    url: "/Hero/hero2.jpg",
     caption: "Empowering Students"
   },
   {
-    url: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2000&auto=format&fit=crop",
+    url: "/Hero/hero3.jpg",
     caption: "Nurturing Future Leaders"
   },
   {
-    url: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=2000&auto=format&fit=crop",
+    url: "/Hero/hero4.jpg",
     caption: "Building Brighter Futures"
   },
 ];
@@ -35,7 +36,7 @@ export const Hero = () => {
   const prev = () => setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <div className="relative h-[650px] w-full overflow-hidden bg-school-green">
+    <div className="relative h-[650px] w-full overflow-hidden bg-school-primary">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
@@ -48,7 +49,8 @@ export const Hero = () => {
           <img
             src={slides[currentIndex].url}
             alt={slides[currentIndex].caption}
-            className="h-full w-full object-contain object-center opacity-50"
+            className="h-full w-full object-cover object-center opacity-40"
+            onError={(e) => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1523050853051-be991f85a6ad?q=80&w=2000&auto=format&fit=crop'; }}
           />
           <div className="absolute bottom-20 left-0 right-0 text-center z-20">
             <motion.p 
@@ -63,41 +65,57 @@ export const Hero = () => {
         </motion.div>
       </AnimatePresence>
 
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
-        <motion.h1 
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          className="text-5xl md:text-7xl font-bold mb-4 uppercase"
-        >
-          [SCHOOL NAME]
-        </motion.h1>
-        <motion.p 
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="text-xl md:text-2xl font-light italic"
-        >
-          "[SCHOOL MOTTO]"
-        </motion.p>
-        <motion.div 
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.4 }}
-          className="mt-8 flex gap-4"
-        >
-          <button className="btn-primary bg-white text-school-green hover:bg-gray-100">
-            Admissions 2026
-          </button>
-          <button className="btn-primary border-2 border-white bg-transparent hover:bg-white/10">
-            Learn More
-          </button>
-        </motion.div>
+      <div className="absolute inset-0 flex items-center justify-between px-4 md:px-12">
+        {/* Left: School Name */}
+        <div className="flex flex-col items-start text-left text-white max-w-xl">
+          <motion.h1 
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            className="text-4xl md:text-6xl font-bold mb-4 uppercase leading-tight"
+          >
+            Maclear High School
+          </motion.h1>
+          <motion.p 
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-xl md:text-2xl font-light italic mb-2"
+          >
+            "Aim High • Mik Hoog"
+          </motion.p>
+          <motion.p
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="text-sm text-blue-200 font-medium tracking-widest uppercase"
+          >
+            EST. 1913 | Murray Street, Maclear
+          </motion.p>
+          <motion.div 
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="mt-6 flex gap-4"
+          >
+            <a href="/admissions" className="btn-primary bg-white text-school-primary hover:bg-gray-100">
+              Admissions 2026
+            </a>
+            <a href="/about" className="btn-primary border-2 border-white bg-transparent hover:bg-white/10">
+              Learn More
+            </a>
+          </motion.div>
+        </div>
+
+        {/* Right: Sport Result Board */}
+        <div className="hidden lg:block">
+          <SportResultBoard />
+        </div>
       </div>
 
-      <button onClick={prev} className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/20 text-white hover:bg-black/40 transition-colors">
+      <button onClick={prev} className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/20 text-white hover:bg-black/40 transition-colors z-30">
         <ChevronLeft size={32} />
       </button>
-      <button onClick={next} className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/20 text-white hover:bg-black/40 transition-colors">
+      <button onClick={next} className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/20 text-white hover:bg-black/40 transition-colors z-30">
         <ChevronRight size={32} />
       </button>
 

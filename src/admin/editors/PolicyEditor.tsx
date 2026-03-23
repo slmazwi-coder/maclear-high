@@ -52,7 +52,7 @@ export const PolicyEditor = () => {
       <div className="flex items-center justify-between mb-8">
         <h1 className="text-2xl font-bold">Policy & Rules Editor</h1>
         <div className="flex flex-col items-end gap-2">
-          <button onClick={save} disabled={isScanning} className="flex items-center gap-2 bg-school-green text-white px-6 py-2 rounded-xl font-medium hover:bg-blue-800 disabled:opacity-50">
+          <button onClick={save} disabled={isScanning} className="flex items-center gap-2 bg-school-primary text-white px-6 py-2 rounded-xl font-medium hover:bg-blue-800 disabled:opacity-50">
             {isScanning ? (<><Loader2 size={18} className="animate-spin" /> Scanning...</>) : (<><Save size={18} /> {saved ? 'Saved ✓' : 'Save Changes'}</>)}
           </button>
           <div className="flex items-center gap-1.5 text-[10px] text-gray-500 font-bold uppercase tracking-widest">
@@ -73,7 +73,7 @@ export const PolicyEditor = () => {
           <div className="flex items-center justify-between mb-4">
             <input value={section.title} onChange={e => updateSectionTitle(i, e.target.value)} placeholder="Section title" className="bg-gray-700 border border-gray-600 rounded-xl px-4 py-2 text-white font-bold" />
             <div className="flex gap-2">
-              <button onClick={() => addRule(i)} className="text-sm text-school-green hover:underline flex items-center gap-1"><Plus size={14} /> Add Rule</button>
+              <button onClick={() => addRule(i)} className="text-sm text-school-primary hover:underline flex items-center gap-1"><Plus size={14} /> Add Rule</button>
               <button onClick={() => removeSection(i)} className="text-gray-500 hover:text-red-400"><Trash2 size={16} /></button>
             </div>
           </div>
@@ -89,7 +89,7 @@ export const PolicyEditor = () => {
         </section>
       ))}
 
-      <button onClick={addSection} className="flex items-center gap-1 text-sm text-school-green hover:underline mt-4"><Plus size={14} /> Add Policy Section</button>
+      <button onClick={addSection} className="flex items-center gap-1 text-sm text-school-primary hover:underline mt-4"><Plus size={14} /> Add Policy Section</button>
     </div>
   );
 };

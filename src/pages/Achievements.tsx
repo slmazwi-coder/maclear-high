@@ -175,7 +175,7 @@ export const Achievements = () => {
                 <div className="flex items-center gap-2 text-yellow-700 font-bold uppercase tracking-widest text-sm mb-2">
                   <Star size={16} fill="currentColor" /> Highest Historic Achievement <Star size={16} fill="currentColor" />
                 </div>
-                <h2 className="text-3xl md:text-5xl font-black text-school-green mb-4">
+                <h2 className="text-3xl md:text-5xl font-black text-school-primary mb-4">
                   2019: A Year of Unparalleled Excellence
                 </h2>
                 <p className="text-lg text-gray-700 max-w-2xl italic leading-relaxed">
@@ -189,7 +189,7 @@ export const Achievements = () => {
         {/* --- HALL OF FAME: 5 BEST EVER --- */}
         <section className="mb-32">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-extrabold text-school-green mb-4 flex items-center justify-center gap-4">
+            <h2 className="text-4xl font-extrabold text-school-primary mb-4 flex items-center justify-center gap-4">
               <Trophy className="text-yellow-500 w-12 h-12" />
               Hall of Fame
               <Trophy className="text-yellow-500 w-12 h-12" />
@@ -213,7 +213,7 @@ export const Achievements = () => {
                 />
                 <div className="p-6 text-center">
                   <h3 className="text-xl font-bold text-gray-900 mb-1">{student.name}</h3>
-                  <div className="text-school-green text-sm font-bold mb-3 flex items-center justify-center gap-1">
+                  <div className="text-school-primary text-sm font-bold mb-3 flex items-center justify-center gap-1">
                     <Medal size={16} /> {student.title}
                   </div>
                   <p className="text-gray-500 text-xs leading-relaxed">{student.desc}</p>
@@ -227,15 +227,15 @@ export const Achievements = () => {
         {/* --- MATRIC RESULTS BY YEAR --- */}
         <section className="mb-32">
           <div className="flex flex-col md:flex-row justify-between items-center mb-10">
-            <h2 className="text-3xl font-bold text-school-green flex items-center gap-3">
-              <BarChart3 className="text-school-green" /> Matric Results Summary
+            <h2 className="text-3xl font-bold text-school-primary flex items-center gap-3">
+              <BarChart3 className="text-school-primary" /> Matric Results Summary
             </h2>
             <div className="flex gap-2 mt-4 md:mt-0 bg-gray-100 p-1 rounded-xl">
               {(["2025", "2024", "2023"] as const).map(year => (
                 <button
                   key={year}
                   onClick={() => setActiveResultsYear(year)}
-                  className={`px-6 py-2 rounded-lg font-bold transition-all ${activeResultsYear === year ? 'bg-school-green text-white shadow-md' : 'text-gray-600 hover:bg-gray-200'}`}
+                  className={`px-6 py-2 rounded-lg font-bold transition-all ${activeResultsYear === year ? 'bg-school-primary text-white shadow-md' : 'text-gray-600 hover:bg-gray-200'}`}
                 >
                   {year}
                 </button>
@@ -258,7 +258,7 @@ export const Achievements = () => {
                 </div>
               ) : (
                 <>
-                  <div className="bg-school-green rounded-3xl p-8 md:p-12 text-white shadow-2xl relative overflow-hidden mb-12">
+                  <div className="bg-school-primary rounded-3xl p-8 md:p-12 text-white shadow-2xl relative overflow-hidden mb-12">
                     <div className="absolute top-0 right-0 p-12 opacity-10 pointer-events-none">
                       <TrendingUp size={200} />
                     </div>
@@ -294,14 +294,14 @@ export const Achievements = () => {
                         <div key={i} className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
                           <div className="flex justify-between items-center mb-3">
                             <span className="font-semibold text-gray-700">{stat.subject}</span>
-                            <span className="text-school-green font-bold">{stat.rate}%</span>
+                            <span className="text-school-primary font-bold">{stat.rate}%</span>
                           </div>
                           <div className="w-full bg-gray-100 rounded-full h-2">
                             <motion.div 
                               initial={{ width: 0 }}
                               animate={{ width: `${stat.rate}%` }}
                               transition={{ duration: 1, delay: i * 0.05 }}
-                              className="bg-school-green h-2 rounded-full"
+                              className="bg-school-primary h-2 rounded-full"
                             />
                           </div>
                         </div>
@@ -331,8 +331,8 @@ export const Achievements = () => {
                 onClick={() => setActiveAchieversYear(year)}
                 className={`px-5 py-2 rounded-full font-bold transition-all text-sm ${
                   activeAchieversYear === year 
-                    ? 'bg-school-green text-white shadow-lg scale-105' 
-                    : 'bg-white text-gray-500 border border-gray-200 hover:border-school-green hover:text-school-green'
+                    ? 'bg-school-primary text-white shadow-lg scale-105' 
+                    : 'bg-white text-gray-500 border border-gray-200 hover:border-school-primary hover:text-school-primary'
                 }`}
               >
                 {year}
@@ -360,7 +360,7 @@ export const Achievements = () => {
                     />
                     <div className="mt-4">
                       <h3 className="text-lg font-bold text-gray-900">{person.name}</h3>
-                      <p className="text-xs font-semibold text-school-green uppercase tracking-wider">{person.title}</p>
+                      <p className="text-xs font-semibold text-school-primary uppercase tracking-wider">{person.title}</p>
                     </div>
                   </div>
                 ))

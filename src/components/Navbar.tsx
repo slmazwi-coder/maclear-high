@@ -9,6 +9,8 @@ const navLinks = [
   { name: 'Documents', path: '/documents' },
   { name: 'Achievements', path: '/achievements' },
   { name: 'Extra-Curricular', path: '/extra-curricular' },
+  { name: 'School Fees', path: '/school-fees' },
+  { name: 'Policy', path: '/school-policy' },
   { name: 'Admissions', path: '/admissions' },
   { name: 'Contact', path: '/contact' },
 ];
@@ -23,18 +25,16 @@ export const Navbar = () => {
         <div className="flex justify-between h-20">
           <div className="flex items-center">
             <Link to="/" className="flex items-center gap-3">
-              <div className="h-12 w-12 rounded-xl bg-school-green/10 flex items-center justify-center border border-school-green/20 shadow-lg font-bold text-school-green text-xl">
-                S
-              </div>
+              <img src="/Logo/Badge.jpg" alt="Maclear High School Badge" className="h-12 w-12 rounded-xl object-cover border border-blue-200 shadow-lg" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
               <div className="hidden md:block">
                 <span className="text-xl font-bold text-school-primary block leading-none">Maclear High School</span>
-                <span className="text-sm font-semibold text-gray-500">HIGH SCHOOL</span>
+                <span className="text-xs font-semibold text-gray-500">EST. 1913 | Aim High • Mik Hoog</span>
               </div>
             </Link>
           </div>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-1">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -42,8 +42,8 @@ export const Navbar = () => {
                 className={cn(
                   "px-3 py-2 rounded-md text-sm font-medium transition-colors",
                   location.pathname === link.path
-                    ? "text-school-green bg-green-50"
-                    : "text-gray-600 hover:text-school-green hover:bg-gray-50"
+                    ? "text-school-primary bg-blue-50"
+                    : "text-gray-600 hover:text-school-primary hover:bg-gray-50"
                 )}
               >
                 {link.name}
@@ -55,7 +55,7 @@ export const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-600 hover:text-school-green p-2"
+              className="text-gray-600 hover:text-school-primary p-2"
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
@@ -75,8 +75,8 @@ export const Navbar = () => {
                 className={cn(
                   "block px-3 py-2 rounded-md text-base font-medium",
                   location.pathname === link.path
-                    ? "text-school-green bg-green-50"
-                    : "text-gray-600 hover:text-school-green hover:bg-gray-50"
+                    ? "text-school-primary bg-blue-50"
+                    : "text-gray-600 hover:text-school-primary hover:bg-gray-50"
                 )}
               >
                 {link.name}

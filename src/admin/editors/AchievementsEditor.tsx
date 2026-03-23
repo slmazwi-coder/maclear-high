@@ -67,7 +67,7 @@ export const AchievementsEditor = () => {
               setEditing({ id: generateId(), name: '', title: '', year: '', desc: '', image: '' });
               setIsNew(true);
             }}
-            className="flex items-center gap-2 bg-school-green text-white px-4 py-2 rounded-xl text-sm font-medium hover:bg-green-800"
+            className="flex items-center gap-2 bg-school-primary text-white px-4 py-2 rounded-xl text-sm font-medium hover:bg-green-800"
           >
             <Plus size={16} /> Add Entry
           </button>
@@ -93,7 +93,7 @@ export const AchievementsEditor = () => {
               <button 
                 onClick={saveHall} 
                 disabled={isScanning}
-                className="flex items-center gap-2 bg-school-green text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-800 disabled:opacity-50"
+                className="flex items-center gap-2 bg-school-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-800 disabled:opacity-50"
               >
                 {isScanning ? (
                   <><Loader2 size={14} className="animate-spin" /> Analyzing...</>
@@ -130,7 +130,7 @@ export const AchievementsEditor = () => {
       </section>
 
       <div className="bg-gray-800 border border-gray-700 rounded-2xl p-6">
-        <p className="text-gray-400 text-sm">💡 To edit yearly results data and subject pass rates, update the code in <code className="text-school-green">Achievements.tsx</code> directly until Supabase is connected.</p>
+        <p className="text-gray-400 text-sm">💡 To edit yearly results data and subject pass rates, update the code in <code className="text-school-primary">Achievements.tsx</code> directly until Supabase is connected.</p>
       </div>
     </div>
   );

@@ -240,3 +240,22 @@ export const login = (password: string): boolean => {
   return false;
 };
 export const logout = () => localStorage.removeItem('admin_auth');
+
+// Invoices
+export interface Invoice {
+  id: string;
+  studentName: string;
+  studentGrade: string;
+  parentName: string;
+  parentEmail: string;
+  parentPhone: string;
+  amount: number;
+  description: string;
+  dueDate: string;
+  createdDate: string;
+  status: string;
+  popFile: string;
+  popDate: string;
+}
+export const getInvoices = () => getItems<Invoice>('admin_invoices');
+export const setInvoices = (items: Invoice[]) => setItems('admin_invoices', items);

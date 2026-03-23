@@ -44,7 +44,7 @@ export const PaymentsEditor = () => {
     <div>
       <div className="flex items-center justify-between mb-8">
         <h1 className="text-2xl font-bold flex items-center gap-3"><CreditCard size={24} /> Payments Register</h1>
-        <button onClick={exportCSV} className="flex items-center gap-2 bg-school-green text-white px-6 py-2 rounded-xl font-medium hover:bg-blue-800">
+        <button onClick={exportCSV} className="flex items-center gap-2 bg-school-primary text-white px-6 py-2 rounded-xl font-medium hover:bg-blue-800">
           <Download size={18} /> Export CSV
         </button>
       </div>

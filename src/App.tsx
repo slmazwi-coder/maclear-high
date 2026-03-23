@@ -11,6 +11,9 @@ import { Achievements } from './pages/Achievements';
 import { ExtraCurricular } from './pages/ExtraCurricular';
 import { Admissions } from './pages/Admissions';
 import { Contact } from './pages/Contact';
+import { SchoolFees } from './pages/SchoolFees';
+import { SchoolPolicy } from './pages/SchoolPolicy';
+import { Chatbot } from './components/Chatbot';
 
 // Admin imports
 import { AdminLogin } from './admin/AdminLogin';
@@ -45,6 +48,8 @@ export default function App() {
         <Route path="/extra-curricular" element={<><Navbar /><main className="flex-grow"><ExtraCurricular /></main><Footer /></>} />
         <Route path="/admissions" element={<><Navbar /><main className="flex-grow"><Admissions /></main><Footer /></>} />
         <Route path="/contact" element={<><Navbar /><main className="flex-grow"><Contact /></main><Footer /></>} />
+        <Route path="/school-fees" element={<><Navbar /><main className="flex-grow"><SchoolFees /></main><Footer /></>} />
+        <Route path="/school-policy" element={<><Navbar /><main className="flex-grow"><SchoolPolicy /></main><Footer /></>} />
 
         {/* Admin routes */}
         <Route path="/admin/login" element={<AdminLogin />} />
@@ -59,6 +64,7 @@ export default function App() {
           <Route path="contact" element={<ContactEditor />} />
         </Route>
       </Routes>
+      <Chatbot />
     </Router>
   );
 }

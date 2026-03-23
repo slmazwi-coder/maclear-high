@@ -19,7 +19,7 @@ export const Contact = () => {
             initial={{ x: -20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
           >
-            <h2 className="text-2xl font-bold text-school-green mb-8">Get in Touch</h2>
+            <h2 className="text-2xl font-bold text-school-primary mb-8">Get in Touch</h2>
             <div className="space-y-8">
               <div className="flex items-start gap-4">
                 <div className="p-3 bg-blue-50 text-school-primary rounded-xl">
@@ -27,7 +27,8 @@ export const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-gray-900">Address</h3>
-                  <p className="text-gray-600">[SCHOOL ADDRESS]</p>
+                  <p className="text-gray-600">1 Murray Street, Maclear, 5480</p>
+                  <p className="text-gray-500 text-sm">P.O. Box 29, Maclear, 5480</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -36,7 +37,7 @@ export const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-gray-900">Phone</h3>
-                  <p className="text-gray-600">[PHONE NUMBER]</p>
+                  <p className="text-gray-600">045 932 1032</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -45,11 +46,11 @@ export const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-gray-900">Email</h3>
-                  <p className="text-gray-600">office@[school-domain].edu.za</p>
+                  <p className="text-gray-600">maclearhigh@telkomsa.net</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="p-3 bg-green-50 text-school-green rounded-xl">
+                <div className="p-3 bg-blue-50 text-school-primary rounded-xl">
                   <Clock size={24} />
                 </div>
                 <div>
@@ -60,14 +61,13 @@ export const Contact = () => {
               </div>
             </div>
 
-            {/* Mock Map */}
+            {/* Map */}
             <div className="mt-12 rounded-3xl overflow-hidden h-[300px] border-4 border-gray-100 shadow-inner bg-gray-200 relative">
               <div className="absolute inset-0 flex items-center justify-center text-gray-500 flex-col gap-2">
-                <MapPin size={48} className="text-school-green" />
-                <p className="font-bold">[SCHOOL CITY], [SCHOOL COUNTRY]</p>
-                <p className="text-sm">Map View Placeholder</p>
+                <MapPin size={48} className="text-school-primary" />
+                <p className="font-bold">Maclear, South Africa</p>
+                <p className="text-sm">1 Murray Street</p>
               </div>
-              {/* In a real app, I'd use an iframe here */}
               <iframe 
                 title="School Location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13568.23456789!2d28.0000!3d-31.6667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDQwJzAwLjAiUyAyOMKwMDAnMDAuMCJF!5e0!3m2!1sen!2sza!4v1234567890"
@@ -82,13 +82,13 @@ export const Contact = () => {
             animate={{ x: 0, opacity: 1 }}
             className="bg-gray-50 p-10 rounded-3xl border border-gray-100 shadow-sm"
           >
-            <h2 className="text-2xl font-bold text-school-green mb-8">Send us a Message</h2>
+            <h2 className="text-2xl font-bold text-school-primary mb-8">Send us a Message</h2>
             <form className="space-y-6">
               <div className="space-y-2">
                 <label className="text-sm font-bold text-gray-700">Full Name</label>
                 <input 
                   type="text" 
-                  className="w-full p-4 rounded-xl bg-white border border-gray-200 focus:ring-2 focus:ring-school-green/20 outline-none"
+                  className="w-full p-4 rounded-xl bg-white border border-gray-200 focus:ring-2 focus:ring-school-primary/20 outline-none"
                   placeholder="Your name"
                 />
               </div>
@@ -96,7 +96,7 @@ export const Contact = () => {
                 <label className="text-sm font-bold text-gray-700">Email Address</label>
                 <input 
                   type="email" 
-                  className="w-full p-4 rounded-xl bg-white border border-gray-200 focus:ring-2 focus:ring-school-green/20 outline-none"
+                  className="w-full p-4 rounded-xl bg-white border border-gray-200 focus:ring-2 focus:ring-school-primary/20 outline-none"
                   placeholder="Your email"
                 />
               </div>
@@ -104,7 +104,7 @@ export const Contact = () => {
                 <label className="text-sm font-bold text-gray-700">Subject</label>
                 <input 
                   type="text" 
-                  className="w-full p-4 rounded-xl bg-white border border-gray-200 focus:ring-2 focus:ring-school-green/20 outline-none"
+                  className="w-full p-4 rounded-xl bg-white border border-gray-200 focus:ring-2 focus:ring-school-primary/20 outline-none"
                   placeholder="What is this regarding?"
                 />
               </div>
@@ -112,7 +112,7 @@ export const Contact = () => {
                 <label className="text-sm font-bold text-gray-700">Message</label>
                 <textarea 
                   rows={4}
-                  className="w-full p-4 rounded-xl bg-white border border-gray-200 focus:ring-2 focus:ring-school-green/20 outline-none resize-none"
+                  className="w-full p-4 rounded-xl bg-white border border-gray-200 focus:ring-2 focus:ring-school-primary/20 outline-none resize-none"
                   placeholder="How can we help you?"
                 ></textarea>
               </div>

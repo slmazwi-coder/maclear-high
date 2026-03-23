@@ -124,7 +124,7 @@ export const Admissions = () => {
                   <p className="text-sm font-medium">Latest Report Card</p>
                   <p className="text-xs text-gray-400">Click to upload PDF</p>
                 </div>
-                <div className="border-2 border-dashed border-gray-200 rounded-2xl p-6 text-center hover:border-school-green transition-colors cursor-pointer">
+                <div className="border-2 border-dashed border-gray-200 rounded-2xl p-6 text-center hover:border-school-primary transition-colors cursor-pointer">
                   <FileText className="mx-auto text-gray-400 mb-2" />
                   <p className="text-sm font-medium">Student ID / Birth Certificate</p>
                   <p className="text-xs text-gray-400">Click to upload PDF</p>

@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --color-school-green: #004d26;
+  --color-school-primary: #1e40af;
+  --color-school-secondary: #dbeafe;
   --color-school-white: #ffffff;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
@@ -17,11 +18,11 @@
 }
 
 .btn-primary {
-  @apply bg-school-green text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-900 transition-colors;
+  @apply bg-school-primary text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-900 transition-colors;
 }
 
 .section-title {
-  @apply text-3xl font-bold text-school-green mb-8 text-center;
+  @apply text-3xl font-bold text-school-primary mb-8 text-center;
 }
 
 .card {
