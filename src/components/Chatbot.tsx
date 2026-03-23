@@ -17,7 +17,7 @@ const faqs = [
   },
   { 
     keywords: ['contact', 'phone', 'call', 'email', 'address'], 
-    answer: 'You can reach us at 045 932 1032 or email maclearhigh@telkomsa.net. We are located at 1 Murray Street, Maclear.' 
+    answer: 'You can reach us at 045 932 1032 or email maclearhighschool1@gmail.com. We are located at 1 Murray Street, Maclear.' 
   },
   { 
     keywords: ['principal', 'fourie', 'voorster', 'staff'], 

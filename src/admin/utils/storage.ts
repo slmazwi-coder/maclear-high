@@ -159,7 +159,7 @@ export const setApplications = (items: Application[]) => setItems('admin_applica
 const defaultContact: ContactInfo = {
   address: '1 Murray Street, Maclear',
   phone: '045 932 1032',
-  email: 'maclearhigh@telkomsa.net',
+  email: 'maclearhighschool1@gmail.com',
   monThu: '07:30 - 15:30',
   friday: '07:30 - 13:30',
   weekend: 'Closed',

@@ -13,7 +13,7 @@ export const Footer = () => {
               "Aim High • Mik Hoog"
             </p>
             <div className="flex gap-4">
-              <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors"><Facebook size={20} /></a>
+              <a href="https://www.facebook.com/profile.php?id=100057144321164" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors"><Facebook size={20} /></a>
               <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors"><Twitter size={20} /></a>
               <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors"><Instagram size={20} /></a>
             </div>
@@ -32,7 +32,7 @@ export const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} />
-                <span>maclearhigh@telkomsa.net</span>
+                <span>maclearhighschool1@gmail.com</span>
               </li>
             </ul>
           </div>
