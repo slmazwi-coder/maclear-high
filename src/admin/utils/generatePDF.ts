@@ -11,7 +11,7 @@ export function generateApplicationPDF(app: Application): void {
   doc.setTextColor(255, 255, 255);
   doc.setFontSize(22);
   doc.setFont('helvetica', 'bold');
-  doc.text('NYANGA HIGH SCHOOL', 105, 18, { align: 'center' });
+  doc.text('[SCHOOL NAME]', 105, 18, { align: 'center' });
   doc.setFontSize(12);
   doc.setFont('helvetica', 'normal');
   doc.text('Student Application Form', 105, 30, { align: 'center' });
@@ -76,7 +76,7 @@ export function generateApplicationPDF(app: Application): void {
   doc.rect(0, 280, 210, 17, 'F');
   doc.setTextColor(255, 255, 255);
   doc.setFontSize(9);
-  doc.text('"Hitch Your Wagon To The Stars"', 105, 290, { align: 'center' });
+  doc.text('"[SCHOOL MOTTO]"', 105, 290, { align: 'center' });
 
   doc.save(`application_${app.firstName}_${app.lastName}.pdf`);
 }

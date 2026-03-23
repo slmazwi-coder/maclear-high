@@ -1,4 +1,4 @@
-// Storage utility — localStorage wrapper (swap with Supabase later)
+// Storage utility — localStorage wrapper for Kwa Komani Technical High School
 
 export interface NewsItem {
   id: string;
@@ -13,7 +13,7 @@ export interface DocumentItem {
   name: string;
   grade: string;
   subject: string;
-  fileData: string; // base64 for demo
+  fileData: string;
   fileName: string;
   uploadDate: string;
 }
@@ -22,19 +22,29 @@ export interface Application {
   id: string;
   firstName: string;
   lastName: string;
-  grade: string;
   dob: string;
+  grade: string;
+  gender: string;
+  address: string;
+  previousSchool: string;
   guardianName: string;
   guardianPhone: string;
   guardianEmail: string;
-  address: string;
-  previousSchool: string;
+  guardianId: string;
+  relationship: string;
+  medicalConditions: string;
+  admissionFeeReceipt: string;
+  guardianIdDoc: string;
+  reportCard: string;
+  birthCertificate: string;
+  transferLetter: string;
   status: 'Pending' | 'Reviewed' | 'Accepted' | 'Rejected';
   submittedDate: string;
 }
 
 export interface ContactInfo {
   address: string;
+  postalAddress: string;
   phone: string;
   email: string;
   monThu: string;
@@ -47,6 +57,19 @@ export interface AboutInfo {
   principalName: string;
   principalTitle: string;
   principalMessage: string[];
+  deputyName: string;
+  deputyTitle: string;
+  establishedYear: string;
+  schoolType: string;
+}
+
+export interface PolicyInfo {
+  introduction: string;
+  sections: {
+    title: string;
+    content: string[];
+  }[];
+  lastUpdated: string;
 }
 
 export interface Activity {
@@ -80,6 +103,53 @@ export interface YearResults {
   distinctions: number;
   wrote: number;
   subjects: { subject: string; rate: number }[];
+}
+
+// Sports interfaces (Retaining but focusing on Music per user request)
+export interface SportCode {
+  id: string;
+  name: string;
+  description: string;
+  image: string;
+  featured: boolean;
+}
+
+export interface SportHallOfFameEntry {
+  id: string;
+  sport: string;
+  name: string;
+  achievement: string;
+  year: string;
+  image: string;
+}
+
+export interface WeekendResult {
+  id: string;
+  sport: string;
+  team: string;
+  opponent: string;
+  scoreHome: string;
+  scoreAway: string;
+  result: 'Win' | 'Loss' | 'Draw';
+  date: string;
+  venue: string;
+}
+
+// Payment interfaces
+export interface Invoice {
+  id: string;
+  studentName: string;
+  studentGrade: string;
+  parentName: string;
+  parentEmail: string;
+  parentPhone: string;
+  amount: number;
+  description: string;
+  dueDate: string;
+  createdDate: string;
+  status: 'Pending' | 'Paid' | 'Overdue';
+  popFile: string;
+  popDate: string;
 }
 
 // Generic CRUD helpers
@@ -118,22 +188,15 @@ const defaultNews: NewsItem[] = [
   {
     id: '1',
     title: "2026 Admissions Open",
-    date: "March 15, 2026",
-    content: "Applications for the 2026 academic year are now officially open. Please visit the Admissions portal.",
+    date: "March 23, 2026",
+    content: "Kwa Komani Technical High School is now accepting applications for the 2026 academic year. We invite all prospective technical and skilled learners to apply.",
     image: ""
   },
   {
     id: '2',
-    title: "Term 1 Reports",
+    title: "National Music Competition Success",
     date: "March 20, 2026",
-    content: "Term 1 progress reports will be issued this Friday. Parents are encouraged to attend the briefing.",
-    image: ""
-  },
-  {
-    id: '3',
-    title: "Regional Athletics Results",
-    date: "March 10, 2026",
-    content: "Our athletics team secured 1st place in the regional championships! Congratulations to all athletes.",
+    content: "Our music department has once again proven to be a force to be reckoned with, securing top honours in the regional championships.",
     image: ""
   }
 ];
@@ -150,9 +213,10 @@ export const setApplications = (items: Application[]) => setItems('admin_applica
 
 // Contact
 const defaultContact: ContactInfo = {
-  address: 'Kalinyanga Admin Area, Engcobo, South Africa, 5050',
-  phone: '047 050 2369',
-  email: 'nyangahighschool@gmail.com',
+  address: '1874 Pelem Road, Mlungisi Township, Queenstown, 5320',
+  postalAddress: 'P O Box 1159, Queenstown, 5320',
+  phone: '0458382074',
+  email: 'info@kwakomani.edu.za',
   monThu: '07:30 - 15:30',
   friday: '07:30 - 13:30',
   weekend: 'Closed',
@@ -163,66 +227,99 @@ export const setContact = (info: ContactInfo) => setObject('admin_contact', info
 // About
 const defaultAbout: AboutInfo = {
   historyParagraphs: [
-    'Founded on the principles of excellence and community service, Nyanga High School has grown from a local initiative into a regional powerhouse of academic achievement. Located in the heart of Engcobo, our school has consistently served as a beacon of hope for thousands of learners.',
-    'Our journey began with a simple mission: to provide world-class education to the youth of the Eastern Cape. Over the decades, we have expanded our facilities, refined our curriculum, and built a legacy that is reflected in our motto: "Hitch Your Wagon To The Stars."',
-    'Today, Nyanga High School is recognized as a leader in Grade 12 results, consistently producing top-tier candidates who go on to excel in universities across South Africa and beyond.',
+    'Established in 1988, Kwa Komani Technical High School has been a cornerstone of technical education in Queenstown for over three decades. Our institution was founded with a clear vision: to provide high-quality skilled and technical training to the learners of Mlungisi and the greater Queenstown area.',
+    'As a premier Technical High School, we offer a wide range of technical subjects designed to equip our learners with practical skills that meet the demands of a modern economy. From engineering and technology to skilled trades, we prepare our students for both higher education and direct entry into specialized industries.',
+    'Kwa Komani is not just about technical skills; we are also a hub of cultural excellence. Our school is renowned for its national success in music competitions, fostering a holistic environment where technical prowess meets creative genius.',
   ],
-  principalName: 'Mr S. Butshingi',
+  principalName: '[Principal Name]',
   principalTitle: 'School Principal',
   principalMessage: [
-    'Welcome to Nyanga High School. As the Principal, it is my honor to lead an institution that is so deeply committed to the success of its learners. Our vision is not just about academic results, but about producing holistic citizens who are ready to change the world.',
-    'We believe in the potential of every student. By providing a disciplined, nurturing, and intellectually stimulating environment, we ensure that our learners can truly hitch their wagons to the stars. Our consistent track record in the Matric results is a testament to the hard work of our dedicated staff and the resilience of our students.',
+    'Welcome to Kwa Komani Technical High School (KHK). Since our founding in 1988, we have remained true to our mission of producing skilled, technically proficient, and well-rounded citizens.',
+    'At Kwa Komani, we believe in the power of "Education for Empowerment." Our technical subjects provide the foundation for successful careers in engineering, construction, and technology. I invite you to explore our portal and learn more about our commitment to excellence.',
   ],
+  deputyName: '[Deputy Name]',
+  deputyTitle: 'Deputy Principal',
+  establishedYear: '1988',
+  schoolType: 'Technical High School',
 };
 export const getAbout = () => getObject<AboutInfo>('admin_about', defaultAbout);
 export const setAbout = (info: AboutInfo) => setObject('admin_about', info);
 
-// Activities
+// Policy
+const defaultPolicy: PolicyInfo = {
+  introduction: 'Kwa Komani Technical High School maintains a strictly disciplined environment to ensure safe and effective technical training.',
+  sections: [
+    {
+      title: 'Workshop Safety',
+      content: [
+        'Learners must wear full safety gear (PPE) in all technical workshops.',
+        'Strict adherence to instructor guidance is mandatory when operating machinery.',
+        'No learner may enter a workshop without supervision.'
+      ]
+    },
+    {
+      title: 'Code of Conduct',
+      content: [
+        'Punctuality is essential for all academic and technical sessions.',
+        'Respect for school property and technical equipment is paramount.',
+        'Bullying and harassment are strictly prohibited.'
+      ]
+    }
+  ],
+  lastUpdated: 'March 2026'
+};
+export const getPolicy = () => getObject<PolicyInfo>('admin_policy', defaultPolicy);
+export const setPolicy = (info: PolicyInfo) => setObject('admin_policy', info);
+
+// Activities (Added Music focus as requested)
 const defaultActivities: Activity[] = [
-  { id: '1', name: 'Soccer', category: 'Sport', description: 'The beautiful game — our teams compete passionately at district and regional tournaments.', image: '' },
-  { id: '2', name: 'Rugby', category: 'Sport', description: 'Our flagship sport with a rich history of regional dominance and provincial representation.', image: '' },
-  { id: '3', name: 'Netball', category: 'Sport', description: 'Competitive teams across all age groups with provincial accolades.', image: '' },
-  { id: '4', name: 'Athletics', category: 'Sport', description: 'Track and field excellence — developing speed, strength, and endurance across all events.', image: '' },
-  { id: '5', name: 'Spelling Bee', category: 'Academic', description: 'Sharpening language skills and vocabulary. National-level finalists multiple years running.', image: '' },
-  { id: '6', name: 'Debating', category: 'Academic', description: 'Developing critical thinkers and eloquent future leaders through competitive debate.', image: '' },
-  { id: '7', name: 'Choral Music', category: 'Culture', description: 'Award-winning choir known for excellence in regional and provincial competitions.', image: '' }
+  { id: '1', name: 'Choral Music', category: 'Culture', description: 'Our award-winning choir is a national champion, known for complex harmonies and excellence in vocal performance.', image: '' },
+  { id: '2', name: 'School Band', category: 'Culture', description: 'Developing instrumental talents and performing at key school and community events.', image: '' },
+  { id: '3', name: 'Technical Skills Expo', category: 'Technical', description: 'An annual showcase of our learners technical projects and engineering designs.', image: '' },
 ];
 export const getActivities = () => getItems<Activity>('admin_activities').length ? getItems<Activity>('admin_activities') : defaultActivities;
 export const setActivities = (items: Activity[]) => setItems('admin_activities', items);
 
-// Achievers by year
-export const getAchieversByYear = (year: string) => getItems<AchieverEntry>(`admin_achievers_${year}`);
-export const setAchieversByYear = (year: string, items: AchieverEntry[]) => setItems(`admin_achievers_${year}`, items);
-
-// Hall of Fame
-const defaultHall: HallOfFameEntry[] = [
-  { id: '1', name: 'Top Achiever 1', title: '7 Distinctions', year: '2025', desc: '', image: '/Achievements/HALL%20OF%20FAME/2025/Achievers%205.jpg' },
-  { id: '2', name: 'Top Achiever 2', title: '6 Distinctions', year: '2025', desc: '', image: '/Achievements/HALL%20OF%20FAME/2025/achievers%203.jpg' },
-  { id: '3', name: 'Top Achiever 3', title: 'Top in Math', year: '2025', desc: '', image: '/Achievements/HALL%20OF%20FAME/2025/achievers%204.jpg' },
-  { id: '4', name: 'Top Achiever 2024', title: 'Overall Best', year: '2024', desc: '', image: '/Achievements/HALL%20OF%20FAME/2024/1.jpg' },
-  { id: '5', name: 'Top Achiever 1 (2023)', title: '7 Distinctions', year: '2023', desc: '', image: '/Achievements/HALL%20OF%20FAME/2023/1.jpg' },
-  { id: '6', name: 'Top Achiever 2 (2023)', title: 'Top in Physics', year: '2023', desc: '', image: '/Achievements/HALL%20OF%20FAME/2023/2.jpg' },
-  { id: '7', name: 'Top Achiever 3 (2023)', title: 'Top in English', year: '2023', desc: '', image: '/Achievements/HALL%20OF%20FAME/2023/3.jpg' }
-];
-export const getHallOfFame = () => getItems<HallOfFameEntry>('admin_hall_of_fame').length ? getItems<HallOfFameEntry>('admin_hall_of_fame') : defaultHall;
-export const setHallOfFame = (items: HallOfFameEntry[]) => setItems('admin_hall_of_fame', items);
-
 // Results by year
 const defaultResults: Record<string, YearResults> = {
-  "2025": { overall: 89.9, bachelor: 206, bachelorRate: 71.8, distinctions: 451, wrote: 287, subjects: [{ subject: "Accounting", rate: 90.6 }, { subject: "Mathematics", rate: 71.1 }, { subject: "Physical Sciences", rate: 82.1 }] },
-  "2024": { overall: 85.4, bachelor: 195, bachelorRate: 68.2, distinctions: 398, wrote: 286, subjects: [{ subject: "Accounting", rate: 88.5 }, { subject: "IsiXhosa HL", rate: 99.1 }] },
-  "2023": { overall: 82.1, bachelor: 178, bachelorRate: 64.5, distinctions: 345, wrote: 276, subjects: [{ subject: "Life Orientation", rate: 100 }, { subject: "Geography", rate: 93.5 }] }
+  "2025": {
+    overall: 88.9,
+    bachelor: 0,
+    bachelorRate: 0,
+    distinctions: 0,
+    wrote: 0,
+    subjects: [
+      { subject: "Engineering Graphics & Design", rate: 100 },
+      { subject: "Mechanical Technology", rate: 100 },
+      { subject: "Electrical Technology", rate: 100 },
+      { subject: "Civil Technology", rate: 100 },
+      { subject: "Technical Mathematics", rate: 100 },
+      { subject: "Technical Sciences", rate: 100 },
+    ]
+  }
 };
 export const getResultsByYear = (year: string) => getObject<YearResults | null>(`admin_results_${year}`, defaultResults[year] || null);
 export const setResultsByYear = (year: string, data: YearResults) => setObject(`admin_results_${year}`, data);
 
 // Auth
-export const isAuthenticated = () => localStorage.getItem('admin_auth') === 'true';
 export const login = (password: string): boolean => {
-  if (password === 'nyanga2025') {
+  if (password === 'komani 2026') {
     localStorage.setItem('admin_auth', 'true');
     return true;
   }
   return false;
 };
 export const logout = () => localStorage.removeItem('admin_auth');
+export const isAuthenticated = () => localStorage.getItem('admin_auth') === 'true';
+
+// Retaining existing getters for components that rely on them
+export const getInvoices = () => getItems<Invoice>('admin_invoices');
+export const setInvoices = (items: Invoice[]) => setItems('admin_invoices', items);
+export const getSportCodes = () => getItems<SportCode>('admin_sport_codes');
+export const setSportCodes = (items: SportCode[]) => setItems('admin_sport_codes', items);
+export const getWeekendResults = () => getItems<WeekendResult>('admin_weekend_results');
+export const setWeekendResults = (items: WeekendResult[]) => setItems('admin_weekend_results', items);
+export const getSportHallOfFame = () => getItems<SportHallOfFameEntry>('admin_sport_hall_of_fame');
+export const setSportHallOfFame = (items: SportHallOfFameEntry[]) => setItems('admin_sport_hall_of_fame', items);
+export const getHallOfFame = () => getItems<HallOfFameEntry>('admin_hall_of_fame');
+export const setHallOfFame = (items: HallOfFameEntry[]) => setItems('admin_hall_of_fame', items);

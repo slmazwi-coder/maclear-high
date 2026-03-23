@@ -1,6 +1,6 @@
 {
-  "name": "Nyanga High School",
-  "description": "Official website for Nyanga High School, a regional leader in academic excellence and holistic education in Engcobo, South Africa.",
+  "name": "[SCHOOL NAME]",
+  "description": "[SCHOOL_DESCRIPTION]",
   "requestFramePermissions": [
     "geolocation"
   ]

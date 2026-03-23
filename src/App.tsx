@@ -4,6 +4,7 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { Hero } from './components/Hero';
 import { NewsSection } from './components/NewsSection';
+import { WeekendResults } from './components/WeekendResults';
 import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { Documents } from './pages/Documents';
@@ -11,6 +12,9 @@ import { Achievements } from './pages/Achievements';
 import { ExtraCurricular } from './pages/ExtraCurricular';
 import { Admissions } from './pages/Admissions';
 import { Contact } from './pages/Contact';
+import { Sports } from './pages/Sports';
+import { SchoolPolicy } from './pages/SchoolPolicy';
+import { SchoolFees } from './pages/SchoolFees';
 
 // Admin imports
 import { AdminLogin } from './admin/AdminLogin';
@@ -24,10 +28,15 @@ import { DocumentsEditor } from './admin/editors/DocumentsEditor';
 import { ExtraCurricularEditor } from './admin/editors/ExtraCurricularEditor';
 import { ApplicationsEditor } from './admin/editors/ApplicationsEditor';
 import { ContactEditor } from './admin/editors/ContactEditor';
+import { SportsEditor } from './admin/editors/SportsEditor';
+import { WeekendResultsEditor } from './admin/editors/WeekendResultsEditor';
+import { PaymentsEditor } from './admin/editors/PaymentsEditor';
+import { PolicyEditor } from './admin/editors/PolicyEditor';
 
 const HomePage = () => (
   <>
     <Hero />
+    <WeekendResults />
     <NewsSection />
     <Home />
   </>
@@ -45,6 +54,9 @@ export default function App() {
         <Route path="/extra-curricular" element={<><Navbar /><main className="flex-grow"><ExtraCurricular /></main><Footer /></>} />
         <Route path="/admissions" element={<><Navbar /><main className="flex-grow"><Admissions /></main><Footer /></>} />
         <Route path="/contact" element={<><Navbar /><main className="flex-grow"><Contact /></main><Footer /></>} />
+        <Route path="/sports" element={<><Navbar /><main className="flex-grow"><Sports /></main><Footer /></>} />
+        <Route path="/policy" element={<><Navbar /><main className="flex-grow"><SchoolPolicy /></main><Footer /></>} />
+        <Route path="/school-fees" element={<><Navbar /><main className="flex-grow"><SchoolFees /></main><Footer /></>} />
 
         {/* Admin routes */}
         <Route path="/admin/login" element={<AdminLogin />} />
@@ -57,6 +69,10 @@ export default function App() {
           <Route path="extra-curricular" element={<ExtraCurricularEditor />} />
           <Route path="applications" element={<ApplicationsEditor />} />
           <Route path="contact" element={<ContactEditor />} />
+          <Route path="sports" element={<SportsEditor />} />
+          <Route path="weekend-results" element={<WeekendResultsEditor />} />
+          <Route path="payments" element={<PaymentsEditor />} />
+          <Route path="policy" element={<PolicyEditor />} />
         </Route>
       </Routes>
     </Router>

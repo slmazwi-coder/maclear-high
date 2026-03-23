@@ -3,42 +3,15 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const slides = [
-  {
-    url: "/Hero/Hero%201.jpg",
-    caption: "Excellence in Education Since 1990"
-  },
-  {
-    url: "/Hero/Achievers%205.jpg",
-    caption: "Celebrating Our Triumphs"
-  },
-  {
-    url: "/Hero/Chris%20Hani%20District%20Top%20Achievers.jpg",
-    caption: "District Top Achievers"
-  },
-  {
-    url: "/Hero/Matric%20prayer.jpg",
-    caption: "A Tradition of Success"
-  },
-  {
-    url: "/Hero/Spelling%20bee%20achievers.jpg",
-    caption: "Nurturing Future Leaders"
-  },
-  {
-    url: "/Hero/Top%20achievrs%202.jpg",
-    caption: "Dedicated to Excellence"
-  },
-  {
-    url: "/Hero/achievers%203.jpg",
-    caption: "Empowering Students"
-  },
-  {
-    url: "/Hero/achievers%204.jpg",
-    caption: "Building Brighter Futures"
-  },
-  {
-    url: "/Hero/prayer%202.jpg",
-    caption: "Guided by Faith and Knowledge"
-  },
+  { url: "/Hero/Hero 1.jpg", caption: "Technical Excellence Since 1988" },
+  { url: "/Hero/Hero 2.jpg", caption: "Skilled for the Future" },
+  { url: "/Hero/Hero 3.jpg", caption: "Engineering Your Dreams" },
+  { url: "/Hero/Hero 4.jpg", caption: "Kwa Komani Technical High School" },
+  { url: "/Hero/Hero 5.jpg", caption: "Where Skills Meet Vision" },
+  { url: "/Hero/Hero 6.jpg", caption: "National Music Champions" },
+  { url: "/Hero/Hero 7.jpg", caption: "Pride of Queenstown" },
+  { url: "/Hero/Hero 8.jpg", caption: "Hands-On Skilled Training" },
+  { url: "/Hero/Hero 9.jpg", caption: "Excellence in Every Trade" },
 ];
 
 export const Hero = () => {
@@ -55,7 +28,7 @@ export const Hero = () => {
   const prev = () => setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <div className="relative h-[650px] w-full overflow-hidden bg-school-green">
+    <div className="relative h-[650px] w-full overflow-hidden bg-black">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
@@ -68,14 +41,15 @@ export const Hero = () => {
           <img
             src={slides[currentIndex].url}
             alt={slides[currentIndex].caption}
-            className="h-full w-full object-contain object-center opacity-50"
+            className="h-full w-full object-cover object-center grayscale-[0.2]"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/10" />
           <div className="absolute bottom-20 left-0 right-0 text-center z-20">
             <motion.p 
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               key={`caption-${currentIndex}`}
-              className="text-white/80 text-lg md:text-xl font-medium tracking-wide uppercase"
+              className="text-white/80 text-lg md:text-xl font-bold tracking-widest uppercase"
             >
               {slides[currentIndex].caption}
             </motion.p>
@@ -84,48 +58,56 @@ export const Hero = () => {
       </AnimatePresence>
 
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
+        <motion.img
+          src="/Logo/Badge.jpg"
+          alt="Kwa Komani Technical High School Logo"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          className="h-32 w-32 md:h-40 md:w-40 rounded-xl border-4 border-school-primary shadow-2xl mb-8 object-contain bg-white p-2"
+        />
         <motion.h1 
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="text-5xl md:text-7xl font-bold mb-4"
+          className="text-5xl md:text-8xl font-black mb-4 uppercase drop-shadow-2xl"
         >
-          NYANGA HIGH SCHOOL
+          <span className="text-white">Kwa</span> <span className="text-school-primary">Komani</span>
         </motion.h1>
         <motion.p 
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="text-xl md:text-2xl font-light italic"
+          className="text-xl md:text-2xl font-bold italic border-y-2 border-white/20 py-2"
         >
-          "Hitch Your Wagon To The Stars"
+          "Technical Excellence & Innovation"
         </motion.p>
         <motion.div 
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4 }}
-          className="mt-8 flex gap-4"
+          className="mt-12 flex gap-4"
         >
-          <button className="btn-primary bg-white text-school-green hover:bg-gray-100">
-            Admissions 2026
-          </button>
-          <button className="btn-primary border-2 border-white bg-transparent hover:bg-white/10">
-            Learn More
-          </button>
+          <a href="/admissions" className="btn-primary bg-school-primary text-white hover:bg-white hover:text-black">
+            Enroll Now
+          </a>
+          <a href="/about" className="btn-primary border-2 border-white bg-transparent hover:bg-white/10">
+            About KKH
+          </a>
         </motion.div>
       </div>
 
-      <button onClick={prev} className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/20 text-white hover:bg-black/40 transition-colors">
+      <button onClick={prev} className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/40 text-white hover:bg-school-primary transition-colors">
         <ChevronLeft size={32} />
       </button>
-      <button onClick={next} className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/20 text-white hover:bg-black/40 transition-colors">
+      <button onClick={next} className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/40 text-white hover:bg-school-primary transition-colors">
         <ChevronRight size={32} />
       </button>
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-30">
         {slides.map((_, i) => (
-          <div 
-            key={i} 
-            className={`h-2 w-2 rounded-full transition-colors ${i === currentIndex ? 'bg-white' : 'bg-white/40'}`}
+          <button
+            key={i}
+            onClick={() => setCurrentIndex(i)}
+            className={`h-1.5 rounded-full transition-all ${i === currentIndex ? 'bg-school-primary w-8' : 'bg-white/40 w-3'}`}
           />
         ))}
       </div>

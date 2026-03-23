@@ -87,7 +87,7 @@ export const AboutEditor = () => {
       </section>
 
       {/* Principal */}
-      <section className="bg-gray-800 border border-gray-700 rounded-2xl p-6">
+      <section className="bg-gray-800 border border-gray-700 rounded-2xl p-6 mb-6">
         <h2 className="text-lg font-bold mb-4">Principal Information</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <div>
@@ -119,6 +119,29 @@ export const AboutEditor = () => {
                 className="w-full bg-gray-700 border border-gray-600 rounded-xl px-4 py-2 text-white text-sm"
               />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Deputy Principal */}
+      <section className="bg-gray-800 border border-gray-700 rounded-2xl p-6">
+        <h2 className="text-lg font-bold mb-4">Deputy Principal</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-sm text-gray-400 mb-1">Name</label>
+            <input
+              value={(info as any).deputyName || ''}
+              onChange={(e) => setInfo({ ...info, deputyName: e.target.value } as any)}
+              className="w-full bg-gray-700 border border-gray-600 rounded-xl px-4 py-2 text-white"
+            />
+          </div>
+          <div>
+            <label className="block text-sm text-gray-400 mb-1">Title</label>
+            <input
+              value={(info as any).deputyTitle || ''}
+              onChange={(e) => setInfo({ ...info, deputyTitle: e.target.value } as any)}
+              className="w-full bg-gray-700 border border-gray-600 rounded-xl px-4 py-2 text-white"
+            />
           </div>
         </div>
       </section>
