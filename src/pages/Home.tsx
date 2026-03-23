@@ -20,7 +20,7 @@ export const Home = () => {
               </h2>
               <div className="w-24 h-2 bg-black mb-8" />
               <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                Since 1988, Kwa Komani Technical High School has been at the forefront of skilled education. 
+                Since 1988, Maclear High School has been at the forefront of academic and skilled education. 
                 We combine rigorous technical sciences with practical, hands-on workshop experience.
               </p>
               <div className="flex gap-4">
@@ -83,8 +83,8 @@ export const Home = () => {
       {/* AMD Alert (Retained for system trust) */}
       <div className="bg-gray-50 py-4 border-y border-gray-200">
          <div className="max-w-7xl mx-auto px-4 flex items-center justify-center gap-2">
-            <ShieldCheck size={14} className="text-school-primary" />
-            <span className="text-[10px] font-black text-gray-400 uppercase tracking-[0.3em]">Anti-Malicious Defense System Active — Kwa Komani Official Portal</span>
+          <ShieldCheck size={14} className="text-school-primary" />
+          <span className="text-[10px] font-black text-gray-400 uppercase tracking-[0.3em]">Anti-Malicious Defense System Active — Maclear High Official Portal</span>
          </div>
       </div>
     </div>

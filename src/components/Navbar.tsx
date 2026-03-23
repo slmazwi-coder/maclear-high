@@ -27,12 +27,12 @@ export const Navbar = () => {
             <Link to="/" className="flex items-center gap-3">
               <img 
                 src="/Logo/Badge.jpg" 
-                alt="Kwa Komani Technical High School Logo" 
+                alt="Maclear High School Logo" 
                 className="h-14 w-14 rounded-lg object-contain shadow-md"
               />
               <div className="hidden md:block">
-                <span className="text-xl font-bold text-black block leading-none">Kwa Komani</span>
-                <span className="text-sm font-semibold text-school-primary uppercase tracking-tighter">Technical High School</span>
+                <span className="text-xl font-bold text-black block leading-none">Maclear High</span>
+                <span className="text-sm font-semibold text-school-primary uppercase tracking-tighter">Academic & Technical</span>
               </div>
             </Link>
           </div>

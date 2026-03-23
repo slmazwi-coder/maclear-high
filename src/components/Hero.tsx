@@ -3,15 +3,15 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const slides = [
-  { url: "/Hero/Hero 1.jpg", caption: "Technical Excellence Since 1988" },
+  { url: "/Hero/Hero 1.jpg", caption: "Academic Excellence Since 1988" },
   { url: "/Hero/Hero 2.jpg", caption: "Skilled for the Future" },
   { url: "/Hero/Hero 3.jpg", caption: "Engineering Your Dreams" },
-  { url: "/Hero/Hero 4.jpg", caption: "Kwa Komani Technical High School" },
+  { url: "/Hero/Hero 4.jpg", caption: "Maclear High School" },
   { url: "/Hero/Hero 5.jpg", caption: "Where Skills Meet Vision" },
-  { url: "/Hero/Hero 6.jpg", caption: "National Music Champions" },
-  { url: "/Hero/Hero 7.jpg", caption: "Pride of Queenstown" },
+  { url: "/Hero/Hero 6.jpg", caption: "Regional Choral Champions" },
+  { url: "/Hero/Hero 7.jpg", caption: "Pride of Maclear" },
   { url: "/Hero/Hero 8.jpg", caption: "Hands-On Skilled Training" },
-  { url: "/Hero/Hero 9.jpg", caption: "Excellence in Every Trade" },
+  { url: "/Hero/Hero 9.jpg", caption: "Excellence in Every Field" },
 ];
 
 export const Hero = () => {
@@ -60,7 +60,7 @@ export const Hero = () => {
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
         <motion.img
           src="/Logo/Badge.jpg"
-          alt="Kwa Komani Technical High School Logo"
+          alt="Maclear High School Logo"
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           className="h-32 w-32 md:h-40 md:w-40 rounded-xl border-4 border-school-primary shadow-2xl mb-8 object-contain bg-white p-2"
@@ -70,7 +70,7 @@ export const Hero = () => {
           animate={{ y: 0, opacity: 1 }}
           className="text-5xl md:text-8xl font-black mb-4 uppercase drop-shadow-2xl"
         >
-          <span className="text-white">Kwa</span> <span className="text-school-primary">Komani</span>
+          <span className="text-white">Maclear</span> <span className="text-school-primary">High</span>
         </motion.h1>
         <motion.p 
           initial={{ y: 20, opacity: 0 }}
@@ -90,7 +90,7 @@ export const Hero = () => {
             Enroll Now
           </a>
           <a href="/about" className="btn-primary border-2 border-white bg-transparent hover:bg-white/10">
-            About KKH
+            About MHS
           </a>
         </motion.div>
       </div>

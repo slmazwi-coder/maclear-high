@@ -33,9 +33,9 @@ export const AdminLogin = () => {
         </Link>
         
         <div className="text-center mb-10">
-          <img src="/Logo/Badge.jpg" alt="KKH Badge" className="w-20 h-20 rounded-2xl mx-auto mb-6 object-contain bg-white p-2 border-2 border-school-primary" />
+          <img src="/Logo/Badge.jpg" alt="Maclear Badge" className="w-20 h-20 rounded-2xl mx-auto mb-6 object-contain bg-white p-2 border-2 border-school-primary" />
           <h1 className="text-3xl font-black text-white uppercase tracking-tighter italic">
-            <span className="text-school-primary">KKH</span> Staff Portal
+            <span className="text-school-primary">MHS</span> Staff Portal
           </h1>
           <p className="text-gray-500 text-xs font-bold uppercase tracking-widest mt-2">Authorized Access Only</p>
         </div>
