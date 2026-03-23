@@ -49,7 +49,7 @@ export const Documents = () => {
                   className={cn(
                     "px-6 py-2 rounded-full font-semibold transition-all",
                     selectedGrade === grade 
-                      ? "bg-school-green text-white shadow-lg" 
+                      ? "bg-school-primary text-white shadow-lg"
                       : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                   )}
                 >

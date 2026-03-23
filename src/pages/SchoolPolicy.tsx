@@ -42,7 +42,7 @@ export const SchoolPolicy = () => {
                 transition={{ delay: i * 0.1 }}
                 className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden"
               >
-                <div className="bg-school-green p-6 text-white flex items-center gap-3">
+                <div className="bg-school-primary p-6 text-white flex items-center gap-3">
                   <Icon size={24} />
                   <h2 className="text-xl font-bold">{section.title}</h2>
                 </div>
@@ -50,7 +50,7 @@ export const SchoolPolicy = () => {
                   <ul className="space-y-4">
                     {section.content.map((rule, j) => (
                       <li key={j} className="flex items-start gap-3">
-                        <span className="w-6 h-6 bg-school-green/10 text-school-green rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
+                        <span className="w-6 h-6 bg-school-primary/10 text-school-primary rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
                           {j + 1}
                         </span>
                         <p className="text-gray-700 leading-relaxed">{rule}</p>

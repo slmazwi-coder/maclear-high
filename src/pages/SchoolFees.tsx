@@ -20,7 +20,7 @@ export const SchoolFees = () => {
   const handleGenerate = (e: React.FormEvent) => {
     e.preventDefault();
     const invoice: Invoice = {
-      id: `KKH-${generateId().slice(0, 6)}`,
+      id: `MHS-${generateId().slice(0, 6)}`,
       studentName: formData.studentName,
       studentGrade: formData.studentGrade,
       parentName: formData.parentName,
@@ -65,7 +65,7 @@ export const SchoolFees = () => {
               <div className="space-y-4">
                 <div className="pb-4 border-b border-gray-800">
                   <p className="text-[10px] text-gray-400 font-black uppercase tracking-widest mb-1">Account Holder</p>
-                  <p className="font-bold">Kwa Komani Technical High School</p>
+                  <p className="font-bold">Maclear High School</p>
                 </div>
                 <div className="pb-4 border-b border-gray-800">
                   <p className="text-[10px] text-gray-400 font-black uppercase tracking-widest mb-1">Bank</p>
@@ -170,8 +170,8 @@ export const SchoolFees = () => {
                       <div className="flex items-center gap-4">
                          <img src="/Logo/Badge.jpg" alt="Logo" className="w-20 h-20 rounded-xl" />
                          <div>
-                            <h2 className="text-2xl font-black text-black leading-none">KKH Official</h2>
-                            <p className="text-xs font-bold text-gray-400 mt-1 uppercase tracking-widest">Kwa Komani Technical High</p>
+                            <h2 className="text-2xl font-black text-black leading-none">MHS Official</h2>
+                            <p className="text-xs font-bold text-gray-400 mt-1 uppercase tracking-widest">Maclear High School</p>
                          </div>
                       </div>
                       <div className="text-right">

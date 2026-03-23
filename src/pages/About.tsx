@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
-import { User, Quote, BookOpen, GraduationCap, Music } from 'lucide-react';
+import { User, Quote } from 'lucide-react';
 import { getAbout, type AboutInfo } from '../admin/utils/storage';
 
 export const About = () => {
@@ -10,7 +10,7 @@ export const About = () => {
     setData(getAbout());
   }, []);
   return (
-    <div className="py-20 bg-white min-h-screen">
+    <div className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="section-title">About Maclear High School</h1>
         
@@ -20,125 +20,55 @@ export const About = () => {
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold text-black mb-6">Our Legacy Since {data.establishedYear}</h2>
-            <div className="space-y-6 text-gray-700 leading-relaxed text-lg">
+            <h2 className="text-2xl font-bold text-school-primary mb-6">Our History & Formation</h2>
+            <div className="space-y-4 text-gray-600 leading-relaxed">
               {data.historyParagraphs.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
-            </div>
-            <div className="mt-12 flex gap-4">
-               <div className="flex flex-col items-center p-4 bg-gray-50 rounded-2xl border-t-4 border-school-primary">
-                  <BookOpen className="text-school-primary mb-2" size={32} />
-                  <span className="font-bold text-sm uppercase">Academic</span>
-               </div>
-               <div className="flex flex-col items-center p-4 bg-gray-50 rounded-2xl border-t-4 border-black">
-                  <GraduationCap className="text-black mb-2" size={32} />
-                  <span className="font-bold text-sm uppercase">Excellence</span>
-               </div>
-               <div className="flex flex-col items-center p-4 bg-gray-50 rounded-2xl border-t-4 border-school-primary">
-                  <Music className="text-school-primary mb-2" size={32} />
-                  <span className="font-bold text-sm uppercase">Choral</span>
-               </div>
             </div>
           </motion.div>
           <motion.div
             initial={{ x: 20, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
-            className="relative rounded-3xl overflow-hidden shadow-2xl border-8 border-gray-100"
+            className="rounded-2xl overflow-hidden shadow-2xl"
           >
             <img 
-              src="/About/Campus.jpg" 
-              alt="Maclear High School Campus" 
+              src="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?q=80&w=2070&auto=format&fit=crop" 
+              alt="School Campus" 
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-            <div className="absolute bottom-6 left-6 text-white font-bold text-xl uppercase tracking-widest">
-               Established 1988
-            </div>
           </motion.div>
         </div>
 
         {/* Principal's Message */}
-        <section className="bg-black text-white rounded-[3rem] p-12 mb-16 relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-8 text-white/5">
-            <Quote size={180} />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center relative z-10">
-            <div className="col-span-1">
-              <div className="aspect-square rounded-3xl overflow-hidden border-4 border-school-primary shadow-2xl bg-gray-800 flex items-center justify-center">
-                <div className="flex flex-col items-center justify-center text-gray-500 p-6 text-center">
-                  <User size={80} className="mb-4 opacity-20" />
-                  <p className="text-sm font-black uppercase tracking-[0.2em] text-school-primary">Principal</p>
+        <section className="bg-gray-50 rounded-3xl p-12 mb-24 relative overflow-hidden">
+            <div className="absolute top-0 right-0 p-8 text-school-primary/10">
+              <Quote size={120} />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+              <div className="col-span-1">
+                <div className="aspect-square rounded-2xl overflow-hidden border-4 border-white shadow-lg">
+                  <img 
+                    src="https://images.unsplash.com/photo-1554126807-6b10f6f6692a?q=80&w=2000&auto=format&fit=crop" 
+                    alt="Principal" 
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+                <div className="mt-4 text-center">
+                  <h3 className="text-xl font-bold text-school-primary">{data.principalName}</h3>
+                  <p className="text-gray-500">{data.principalTitle}</p>
                 </div>
               </div>
-              <div className="mt-6 text-center">
-                <h3 className="text-2xl font-bold text-white">{data.principalName}</h3>
-                <p className="text-red-500 font-bold uppercase text-xs tracking-widest">{data.principalTitle}</p>
-              </div>
-            </div>
-            <div className="col-span-2">
-              <h2 className="text-4xl font-black text-white mb-8 border-l-4 border-school-primary pl-6 py-2">Principal's Vision</h2>
-              <div className="space-y-6 text-gray-300 text-xl leading-relaxed italic">
+              <div className="col-span-2">
+                <h2 className="text-3xl font-bold text-school-primary mb-6 italic">Principal's Message</h2>
+              <div className="space-y-4 text-gray-700 text-lg leading-relaxed">
                 {data.principalMessage.map((p, i) => (
                   <p key={i}>"{p}"</p>
                 ))}
               </div>
             </div>
           </div>
-        </section>
-
-        {/* Academic focus section */}
-        <section className="py-16 mb-16">
-           <div className="bg-gray-50 rounded-3xl p-12 border-2 border-dashed border-gray-200">
-              <h2 className="text-3xl font-black text-black mb-8 text-center uppercase tracking-tighter">Academic & Holistic Excellence</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-gray-700">
-                 <div>
-                    <h3 className="text-xl font-bold text-school-primary mb-4 flex items-center gap-2">
-                       <BookOpen size={24} /> Quality Teaching
-                    </h3>
-                    <p className="leading-relaxed">
-                       Maclear High School is dedicated to providing high-quality tuition across all learning areas. 
-                       Our experienced educators focus on developing critical thinking and preparing learners for the challenges of tomorrow.
-                    </p>
-                 </div>
-                 <div>
-                    <h3 className="text-xl font-bold text-black mb-4 flex items-center gap-2">
-                       <GraduationCap size={24} /> Future Ready
-                    </h3>
-                    <p className="leading-relaxed">
-                       Our curriculum is designed to open doors to tertiary education and various career paths. 
-                       Through rigorous academic standards and support, we ensure our students are "Aiming High" in every aspect.
-                    </p>
-                 </div>
-              </div>
-           </div>
-        </section>
-
-        {/* RCL Student Council */}
-        <section className="mb-12">
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <h2 className="text-3xl font-black text-black mb-10 flex items-center justify-center gap-4 uppercase">
-               <span className="w-12 h-1 bg-school-primary" />
-               Student Leadership
-               <span className="w-12 h-1 bg-school-primary" />
-            </h2>
-            <div className="rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-gray-50 max-w-5xl mx-auto group">
-              <img 
-                src="/About/RCL STudent Council.jpg" 
-                alt="Maclear High School RCL Student Council" 
-                className="w-full h-auto object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700"
-              />
-            </div>
-            <p className="text-gray-500 mt-8 text-xl italic max-w-3xl mx-auto font-medium">
-               Our Representative Council of Learners — empowering the leaders of tomorrow.
-            </p>
-          </motion.div>
         </section>
 
       </div>

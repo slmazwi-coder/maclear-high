@@ -3,15 +3,22 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const slides = [
-  { url: "/Hero/Hero 1.jpg", caption: "Academic Excellence Since 1980" },
-  { url: "/Hero/Hero 2.jpg", caption: "Developing Future Leaders" },
-  { url: "/Hero/Hero 3.jpg", caption: "Excellence in Every Field" },
-  { url: "/Hero/Hero 4.jpg", caption: "Maclear High School" },
-  { url: "/Hero/Hero 5.jpg", caption: "Aiming High • Mik Hoog" },
-  { url: "/Hero/Hero 6.jpg", caption: "Regional Choral Champions" },
-  { url: "/Hero/Hero 7.jpg", caption: "Pride of Maclear" },
-  { url: "/Hero/Hero 8.jpg", caption: "Passion in Sport" },
-  { url: "/Hero/Hero 9.jpg", caption: "Nurturing Talent & Vision" },
+  {
+    url: "https://images.unsplash.com/photo-1523050853051-be991f85a6ad?q=80&w=2000&auto=format&fit=crop",
+    caption: "Excellence in Education"
+  },
+  {
+    url: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2000&auto=format&fit=crop",
+    caption: "Empowering Students"
+  },
+  {
+    url: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2000&auto=format&fit=crop",
+    caption: "Nurturing Future Leaders"
+  },
+  {
+    url: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=2000&auto=format&fit=crop",
+    caption: "Building Brighter Futures"
+  },
 ];
 
 export const Hero = () => {
@@ -28,7 +35,7 @@ export const Hero = () => {
   const prev = () => setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <div className="relative h-[650px] w-full overflow-hidden bg-black">
+    <div className="relative h-[650px] w-full overflow-hidden bg-school-green">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
@@ -41,15 +48,14 @@ export const Hero = () => {
           <img
             src={slides[currentIndex].url}
             alt={slides[currentIndex].caption}
-            className="h-full w-full object-cover object-center grayscale-[0.2]"
+            className="h-full w-full object-contain object-center opacity-50"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/10" />
           <div className="absolute bottom-20 left-0 right-0 text-center z-20">
             <motion.p 
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               key={`caption-${currentIndex}`}
-              className="text-white/80 text-lg md:text-xl font-bold tracking-widest uppercase"
+              className="text-white/80 text-lg md:text-xl font-medium tracking-wide uppercase"
             >
               {slides[currentIndex].caption}
             </motion.p>
@@ -58,56 +64,48 @@ export const Hero = () => {
       </AnimatePresence>
 
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
-        <motion.img
-          src="/Logo/Badge.jpg"
-          alt="Maclear High School Logo"
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          className="h-32 w-32 md:h-40 md:w-40 rounded-xl border-4 border-school-primary shadow-2xl mb-8 object-contain bg-white p-2"
-        />
         <motion.h1 
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="text-5xl md:text-8xl font-black mb-4 uppercase drop-shadow-2xl"
+          className="text-5xl md:text-7xl font-bold mb-4 uppercase"
         >
-          <span className="text-white">Maclear</span> <span className="text-school-primary">High</span>
+          [SCHOOL NAME]
         </motion.h1>
         <motion.p 
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="text-xl md:text-2xl font-bold italic border-y-2 border-white/20 py-2"
+          className="text-xl md:text-2xl font-light italic"
         >
-          "Technical Excellence & Innovation"
+          "[SCHOOL MOTTO]"
         </motion.p>
         <motion.div 
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4 }}
-          className="mt-12 flex gap-4"
+          className="mt-8 flex gap-4"
         >
-          <a href="/admissions" className="btn-primary bg-school-primary text-white hover:bg-white hover:text-black">
-            Enroll Now
-          </a>
-          <a href="/about" className="btn-primary border-2 border-white bg-transparent hover:bg-white/10">
-            About MHS
-          </a>
+          <button className="btn-primary bg-white text-school-green hover:bg-gray-100">
+            Admissions 2026
+          </button>
+          <button className="btn-primary border-2 border-white bg-transparent hover:bg-white/10">
+            Learn More
+          </button>
         </motion.div>
       </div>
 
-      <button onClick={prev} className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/40 text-white hover:bg-school-primary transition-colors">
+      <button onClick={prev} className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/20 text-white hover:bg-black/40 transition-colors">
         <ChevronLeft size={32} />
       </button>
-      <button onClick={next} className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/40 text-white hover:bg-school-primary transition-colors">
+      <button onClick={next} className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/20 text-white hover:bg-black/40 transition-colors">
         <ChevronRight size={32} />
       </button>
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-30">
         {slides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setCurrentIndex(i)}
-            className={`h-1.5 rounded-full transition-all ${i === currentIndex ? 'bg-school-primary w-8' : 'bg-white/40 w-3'}`}
+          <div 
+            key={i} 
+            className={`h-2 w-2 rounded-full transition-colors ${i === currentIndex ? 'bg-white' : 'bg-white/40'}`}
           />
         ))}
       </div>

@@ -1,161 +1,150 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { FileText, ShieldCheck, Upload, User, GraduationCap, Building, Phone, AlertCircle, Wrench } from 'lucide-react';
+import { Upload, CheckCircle, AlertCircle, FileText } from 'lucide-react';
 
 export const Admissions = () => {
-  return (
-    <div className="py-20 bg-gray-50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h1 className="section-title">2026 Admissions</h1>
-          <p className="text-xl text-gray-600 italic">Joining the Legacy of Kwa Komani Technical Excellence</p>
-        </div>
+  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    studentName: '',
+    studentSurname: '',
+    grade: 'Grade 8',
+    parentName: '',
+    parentEmail: '',
+    parentPhone: '',
+  });
 
-        {/* Admissions Info Card */}
-        <div className="bg-black text-white p-10 rounded-[3rem] mb-12 border-l-8 border-school-primary shadow-2xl relative overflow-hidden">
-           <div className="absolute top-0 right-0 p-8 text-white/5">
-              <Wrench size={160} />
-           </div>
-           <div className="relative z-10">
-              <h2 className="text-3xl font-black mb-6 uppercase tracking-tighter">Information for Applicants</h2>
-              <p className="text-gray-400 mb-8 leading-relaxed">
-                 Kwa Komani Technical High School is a specialized institution focusing on technical sciences and skilled trades. 
-                 Admission is competitive and based on academic merit and technical aptitude.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                 <div className="flex items-start gap-3">
-                    <div className="p-2 bg-school-primary rounded-lg">
-                       <ShieldCheck size={20} />
-                    </div>
-                    <div>
-                       <p className="font-bold">Technical Focus</p>
-                       <p className="text-xs text-gray-500 uppercase">Skilled trades & Engineering</p>
-                    </div>
-                 </div>
-                 <div className="flex items-start gap-3">
-                    <div className="p-2 bg-white/10 rounded-lg">
-                       <AlertCircle size={20} className="text-school-primary" />
-                    </div>
-                    <div>
-                       <p className="font-bold">Admission Fee</p>
-                       <p className="text-xs text-gray-500 uppercase">Non-refundable administrative fee</p>
-                    </div>
-                 </div>
-              </div>
-           </div>
-        </div>
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
 
-        <form className="bg-white p-12 rounded-[3.5rem] shadow-2xl border border-gray-100 space-y-12">
-          {/* Section 1: Student Details */}
-          <section>
-            <h3 className="text-2xl font-black text-black mb-8 flex items-center gap-3 uppercase tracking-tighter border-b-2 border-gray-100 pb-4">
-              <User className="text-school-primary" size={24} /> Student Particulars
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="space-y-2">
-                <label className="text-xs font-black text-gray-400 uppercase tracking-widest ml-1">First Name(s)</label>
-                <input className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-school-primary focus:border-transparent outline-none transition-all" />
-              </div>
-              <div className="space-y-2">
-                <label className="text-xs font-black text-gray-400 uppercase tracking-widest ml-1">Surname</label>
-                <input className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-school-primary focus:border-transparent outline-none transition-all" />
-              </div>
-              <div className="space-y-2">
-                <label className="text-xs font-black text-gray-400 uppercase tracking-widest ml-1">Date of Birth</label>
-                <input type="date" className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-school-primary focus:border-transparent outline-none transition-all" />
-              </div>
-              <div className="space-y-2">
-                <label className="text-xs font-black text-gray-400 uppercase tracking-widest ml-1">Gender</label>
-                <select className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-school-primary focus:border-transparent outline-none transition-all">
-                  <option>Male</option>
-                  <option>Female</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div className="md:col-span-2 space-y-2">
-                <label className="text-xs font-black text-gray-400 uppercase tracking-widest ml-1">Current Grade / Applying For</label>
-                <select className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-school-primary focus:border-transparent outline-none transition-all">
-                  <option>Grade 8 (New Intake)</option>
-                  <option>Grade 9</option>
-                  <option>Grade 10 (Technical Specialization)</option>
-                </select>
-              </div>
-            </div>
-          </section>
-
-          {/* Section 2: Parent/Guardian */}
-          <section>
-            <h3 className="text-2xl font-black text-black mb-8 flex items-center gap-3 uppercase tracking-tighter border-b-2 border-gray-100 pb-4">
-              <Building className="text-school-primary" size={24} /> Guardian Information
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="space-y-2">
-                <label className="text-xs font-black text-gray-400 uppercase tracking-widest ml-1">Guardian Full Name</label>
-                <input className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-school-primary focus:border-transparent outline-none transition-all" />
-              </div>
-              <div className="space-y-2">
-                <label className="text-xs font-black text-gray-400 uppercase tracking-widest ml-1">Guardian ID Number</label>
-                <input className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-school-primary focus:border-transparent outline-none transition-all" />
-              </div>
-              <div className="space-y-2">
-                <label className="text-xs font-black text-gray-400 uppercase tracking-widest ml-1">Primary Phone</label>
-                <input className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-school-primary focus:border-transparent outline-none transition-all" />
-              </div>
-              <div className="space-y-2">
-                <label className="text-xs font-black text-gray-400 uppercase tracking-widest ml-1">Email Address</label>
-                <input type="email" className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-school-primary focus:border-transparent outline-none transition-all" />
-              </div>
-            </div>
-          </section>
-
-          {/* Section 3: Documents */}
-          <section>
-            <h3 className="text-2xl font-black text-black mb-8 flex items-center gap-3 uppercase tracking-tighter border-b-2 border-gray-100 pb-4">
-              <Upload className="text-school-primary" size={24} /> Document Uploads
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {[
-                { label: 'Admission Fee Receipt', desc: 'Proof of administrative fee payment' },
-                { label: 'Guardian ID Document', desc: 'Certified copy of legal guardian ID' },
-                { label: 'Student Birth Certificate', desc: 'Certified copy of learner birth cert' },
-                { label: 'Latest Report Card', desc: 'Reflecting recent academic performance' },
-              ].map((doc, i) => (
-                <div key={i} className="p-6 bg-gray-50 rounded-[2rem] border border-gray-200 group hover:border-school-primary transition-all">
-                  <p className="font-bold text-black mb-1">{doc.label}</p>
-                  <p className="text-[10px] text-gray-500 uppercase tracking-widest mb-4">{doc.desc}</p>
-                  <input type="file" className="block w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-bold file:bg-gray-200 file:text-black hover:file:bg-school-primary hover:file:text-white" />
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <div className="pt-8">
-            <button type="submit" className="w-full btn-primary bg-black hover:bg-school-primary flex items-center justify-center gap-2 py-5 text-white font-black uppercase tracking-[0.4em] shadow-xl group">
-              Submit Application <Send size={18} className="group-hover:translate-x-1" />
-            </button>
-            <div className="flex items-center justify-center gap-2 mt-6 text-[10px] font-bold text-gray-400 uppercase tracking-widest">
-              <ShieldCheck size={14} className="text-school-primary" /> Encrypted Submission Secure
-            </div>
+  if (submitted) {
+    return (
+      <div className="py-20 flex items-center justify-center min-h-[60vh]">
+        <motion.div 
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          className="text-center p-12 bg-white rounded-3xl shadow-2xl max-w-md"
+        >
+          <div className="w-20 h-20 bg-blue-100 text-school-primary rounded-full flex items-center justify-center mx-auto mb-6">
+            <CheckCircle size={48} />
           </div>
-        </form>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Application Submitted!</h2>
+          <p className="text-gray-600 mb-8">
+            Thank you for applying to Maclear High School. We have received your application and our admissions team will contact you shortly.
+          </p>
+          <button 
+            onClick={() => setSubmitted(false)}
+            className="btn-primary w-full"
+          >
+            Back to Home
+          </button>
+        </motion.div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="py-16 bg-gray-50">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 className="section-title">Admissions Portal</h1>
+        
+        <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
+          <div className="bg-school-primary p-8 text-white">
+            <h2 className="text-2xl font-bold mb-2">Apply for 2026 Academic Year</h2>
+            <p className="text-green-100">Please fill in the form below accurately. All fields are required.</p>
+          </div>
+
+          <form onSubmit={handleSubmit} className="p-8 space-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-gray-700">Student First Name</label>
+                <input 
+                  required
+                  type="text" 
+                  className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-primary/20 outline-none"
+                  placeholder="Enter first name"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-gray-700">Student Surname</label>
+                <input 
+                  required
+                  type="text" 
+                  className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-primary/20 outline-none"
+                  placeholder="Enter surname"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-gray-700">Applying for Grade</label>
+                <select className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-primary/20 outline-none">
+                  <option>Grade 8</option>
+                  <option>Grade 9</option>
+                  <option>Grade 10</option>
+                  <option>Grade 11</option>
+                  <option>Grade 12</option>
+                </select>
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-gray-700">Parent/Guardian Name</label>
+                <input 
+                  required
+                  type="text" 
+                  className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-primary/20 outline-none"
+                  placeholder="Full name"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-gray-700">Parent Email</label>
+                <input 
+                  required
+                  type="email" 
+                  className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-primary/20 outline-none"
+                  placeholder="email@example.com"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-gray-700">Parent Phone Number</label>
+                <input 
+                  required
+                  type="tel" 
+                  className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-primary/20 outline-none"
+                  placeholder="012 345 6789"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <h3 className="text-lg font-bold text-gray-800 flex items-center gap-2">
+                <Upload size={20} className="text-school-primary" /> Required Documents (PDF)
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="border-2 border-dashed border-gray-200 rounded-2xl p-6 text-center hover:border-school-primary transition-colors cursor-pointer">
+                  <FileText className="mx-auto text-gray-400 mb-2" />
+                  <p className="text-sm font-medium">Latest Report Card</p>
+                  <p className="text-xs text-gray-400">Click to upload PDF</p>
+                </div>
+                <div className="border-2 border-dashed border-gray-200 rounded-2xl p-6 text-center hover:border-school-green transition-colors cursor-pointer">
+                  <FileText className="mx-auto text-gray-400 mb-2" />
+                  <p className="text-sm font-medium">Student ID / Birth Certificate</p>
+                  <p className="text-xs text-gray-400">Click to upload PDF</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-yellow-50 p-4 rounded-xl flex gap-3 items-start">
+              <AlertCircle className="text-yellow-600 shrink-0" size={20} />
+              <p className="text-sm text-yellow-800">
+                By submitting this form, you certify that all information provided is true and correct. Incomplete applications will not be processed.
+              </p>
+            </div>
+
+            <button type="submit" className="btn-primary w-full py-4 text-lg shadow-lg shadow-blue-900/20">
+              Submit Application
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );
 };
-
-const Send = ({ size, className }: { size: number, className?: string }) => (
-  <svg 
-    width={size} 
-    height={size} 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="2" 
-    strokeLinecap="round" 
-    strokeLinejoin="round" 
-    className={className}
-  >
-    <path d="m22 2-7 20-4-9-9-4Z" />
-    <path d="M22 2 11 13" />
-  </svg>
-);

@@ -1,4 +1,4 @@
-// Storage utility — localStorage wrapper for Maclear High School
+// Storage utility — localStorage wrapper (swap with Supabase later)
 
 export interface NewsItem {
   id: string;
@@ -13,7 +13,7 @@ export interface DocumentItem {
   name: string;
   grade: string;
   subject: string;
-  fileData: string;
+  fileData: string; // base64 for demo
   fileName: string;
   uploadDate: string;
 }
@@ -22,29 +22,19 @@ export interface Application {
   id: string;
   firstName: string;
   lastName: string;
-  dob: string;
   grade: string;
-  gender: string;
-  address: string;
-  previousSchool: string;
+  dob: string;
   guardianName: string;
   guardianPhone: string;
   guardianEmail: string;
-  guardianId: string;
-  relationship: string;
-  medicalConditions: string;
-  admissionFeeReceipt: string;
-  guardianIdDoc: string;
-  reportCard: string;
-  birthCertificate: string;
-  transferLetter: string;
+  address: string;
+  previousSchool: string;
   status: 'Pending' | 'Reviewed' | 'Accepted' | 'Rejected';
   submittedDate: string;
 }
 
 export interface ContactInfo {
   address: string;
-  postalAddress: string;
   phone: string;
   email: string;
   monThu: string;
@@ -57,19 +47,6 @@ export interface AboutInfo {
   principalName: string;
   principalTitle: string;
   principalMessage: string[];
-  deputyName: string;
-  deputyTitle: string;
-  establishedYear: string;
-  schoolType: string;
-}
-
-export interface PolicyInfo {
-  introduction: string;
-  sections: {
-    title: string;
-    content: string[];
-  }[];
-  lastUpdated: string;
 }
 
 export interface Activity {
@@ -78,6 +55,12 @@ export interface Activity {
   description: string;
   category: string;
   image: string;
+}
+
+export interface PolicyInfo {
+  introduction: string;
+  lastUpdated: string;
+  sections: { title: string; content: string[] }[];
 }
 
 export interface AchieverEntry {
@@ -103,53 +86,6 @@ export interface YearResults {
   distinctions: number;
   wrote: number;
   subjects: { subject: string; rate: number }[];
-}
-
-// Sports interfaces (Retaining but focusing on Music per user request)
-export interface SportCode {
-  id: string;
-  name: string;
-  description: string;
-  image: string;
-  featured: boolean;
-}
-
-export interface SportHallOfFameEntry {
-  id: string;
-  sport: string;
-  name: string;
-  achievement: string;
-  year: string;
-  image: string;
-}
-
-export interface WeekendResult {
-  id: string;
-  sport: string;
-  team: string;
-  opponent: string;
-  scoreHome: string;
-  scoreAway: string;
-  result: 'Win' | 'Loss' | 'Draw';
-  date: string;
-  venue: string;
-}
-
-// Payment interfaces
-export interface Invoice {
-  id: string;
-  studentName: string;
-  studentGrade: string;
-  parentName: string;
-  parentEmail: string;
-  parentPhone: string;
-  amount: number;
-  description: string;
-  dueDate: string;
-  createdDate: string;
-  status: 'Pending' | 'Paid' | 'Overdue';
-  popFile: string;
-  popDate: string;
 }
 
 // Generic CRUD helpers
@@ -188,15 +124,22 @@ const defaultNews: NewsItem[] = [
   {
     id: '1',
     title: "2026 Admissions Open",
-    date: "March 23, 2026",
-    content: "Maclear High School is now accepting applications for the 2026 academic year. We invite all prospective learners to apply and join our community of excellence.",
+    date: "March 15, 2026",
+    content: "Applications for the 2026 academic year are now officially open. Please visit the Admissions portal.",
     image: ""
   },
   {
     id: '2',
-    title: "Regional Choral Success",
+    title: "Term 1 Reports",
     date: "March 20, 2026",
-    content: "Our school choir has once again secured top honors in the regional championships, continuing our tradition of vocal excellence.",
+    content: "Term 1 progress reports will be issued this Friday. Parents are encouraged to attend the briefing.",
+    image: ""
+  },
+  {
+    id: '3',
+    title: "Regional Athletics Results",
+    date: "March 10, 2026",
+    content: "Our athletics team secured 1st place in the regional championships! Congratulations to all athletes.",
     image: ""
   }
 ];
@@ -213,8 +156,7 @@ export const setApplications = (items: Application[]) => setItems('admin_applica
 
 // Contact
 const defaultContact: ContactInfo = {
-  address: 'Murray Street, Maclear, 5480, Eastern Cape',
-  postalAddress: 'P.O. Box 29, Maclear, 5480',
+  address: '1 Murray Street, Maclear',
   phone: '045 932 1032',
   email: 'maclearhigh@telkomsa.net',
   monThu: '07:30 - 15:30',
@@ -227,100 +169,74 @@ export const setContact = (info: ContactInfo) => setObject('admin_contact', info
 // About
 const defaultAbout: AboutInfo = {
   historyParagraphs: [
-    'Maclear High School has been a cornerstone of education in the Joe Gqabi District for decades. Our institution is dedicated to providing high-quality academic and holistic training to the learners of Maclear and surrounding areas.',
-    'We offer a wide range of academic subjects designed to equip our learners with the knowledge and skills needed for higher education and successful careers. Our commitment to excellence is reflected in our consistent results and the achievements of our alumni.',
-    'Maclear High is also a hub of cultural and sporting excellence. Our school is renowned for its success in choral music competitions and its passionate sport participation, fostering an environment where every talent is nurtured.',
+    'Founded in 1875 and officially registered in 1913, Maclear High School has a rich history of academic excellence and community leadership in the Eastern Cape.',
+    'Our mission is to provide an environment where every learner can Aim High (Mik Hoog) and achieve their full potential through disciplined study and holistic development.',
+    'Consistently recognized for strong matric results, we take pride in our heritage as one of the region\'s premier educational institutions.',
   ],
-  principalName: '[Principal Name]',
+  principalName: 'Mrs Fourie',
   principalTitle: 'School Principal',
   principalMessage: [
-    'Welcome to Maclear High School (MHS). Our mission is to produce well-rounded, responsible, and excellently educated citizens who are ready to contribute to society.',
-    'At Maclear High, we believe in "Aiming High" (Mik Hoog). Our dedicated staff and rich extracurricular program provide the foundation for our students to achieve their full potential. I invite you to explore our portal and share in our journey of excellence.',
+    'Welcome to Maclear High School. It is an honor to serve this historic institution and its vibrant community of learners and educators.',
+    'We are committed to maintaining the high standards of discipline and academic integrity that have defined Maclear High for over a century.',
   ],
-  deputyName: '[Deputy Name]',
-  deputyTitle: 'Deputy Principal',
-  establishedYear: '1980',
-  schoolType: 'High School',
+};
+
+const defaultPolicy: PolicyInfo = {
+  introduction: "Maclear High School is committed to creating a safe and disciplined environment for all learners.",
+  lastUpdated: "January 2026",
+  sections: [
+    { title: "Code of Conduct", content: ["Respect all staff and peers", "Be punctual for all classes", "Wear the correct school uniform at all times"] },
+    { title: "Academic Rules", content: ["Complete all assignments on time", "Attend all scheduled exams", "Maintain academic honesty"] }
+  ]
 };
 export const getAbout = () => getObject<AboutInfo>('admin_about', defaultAbout);
 export const setAbout = (info: AboutInfo) => setObject('admin_about', info);
 
-// Policy
-const defaultPolicy: PolicyInfo = {
-  introduction: 'Maclear High School maintain a disciplined environment to ensure safe and effective learning for all students.',
-  sections: [
-    {
-      title: 'Code of Conduct',
-      content: [
-        'Punctuality is essential for all academic and extracurricular sessions.',
-        'Respect for school property and the environment is paramount.',
-        'Full school uniform must be worn with pride at all times.',
-        'Bullying and harassment are strictly prohibited.'
-      ]
-    },
-    {
-      title: 'Academic Integrity',
-      content: [
-        'Students are expected to maintain high standards of honesty in all assessments.',
-        'Regular attendance and active participation in class are key to success.',
-        'Homework and projects must be completed on time.'
-      ]
-    }
-  ],
-  lastUpdated: 'March 2026'
-};
 export const getPolicy = () => getObject<PolicyInfo>('admin_policy', defaultPolicy);
 export const setPolicy = (info: PolicyInfo) => setObject('admin_policy', info);
 
 // Activities
 const defaultActivities: Activity[] = [
-  { id: '1', name: 'Choral Music', category: 'Culture', description: 'Our award-winning choir is a regional champion, known for excellence in vocal performance and complex harmonies.', image: '' },
-  { id: '2', name: 'Rugby', category: 'Sports', description: 'A dominant sport at Maclear High, with teams competing at provincial levels with passion and pride.', image: '' },
-  { id: '3', name: 'Netball', category: 'Sports', description: 'Our netball teams show exceptional skill and dedication, achieving great results in local leagues.', image: '' },
+  { id: '1', name: 'Soccer', category: 'Sport', description: 'The beautiful game — our teams compete passionately at district and regional tournaments.', image: '' },
+  { id: '2', name: 'Rugby', category: 'Sport', description: 'Our flagship sport with a rich history of regional dominance and provincial representation.', image: '' },
+  { id: '3', name: 'Netball', category: 'Sport', description: 'Competitive teams across all age groups with provincial accolades.', image: '' },
+  { id: '4', name: 'Athletics', category: 'Sport', description: 'Track and field excellence — developing speed, strength, and endurance across all events.', image: '' },
+  { id: '5', name: 'Spelling Bee', category: 'Academic', description: 'Sharpening language skills and vocabulary. National-level finalists multiple years running.', image: '' },
+  { id: '6', name: 'Debating', category: 'Academic', description: 'Developing critical thinkers and eloquent future leaders through competitive debate.', image: '' },
+  { id: '7', name: 'Choral Music', category: 'Culture', description: 'Award-winning choir known for excellence in regional and provincial competitions.', image: '' }
 ];
 export const getActivities = () => getItems<Activity>('admin_activities').length ? getItems<Activity>('admin_activities') : defaultActivities;
 export const setActivities = (items: Activity[]) => setItems('admin_activities', items);
 
+// Achievers by year
+export const getAchieversByYear = (year: string) => getItems<AchieverEntry>(`admin_achievers_${year}`);
+export const setAchieversByYear = (year: string, items: AchieverEntry[]) => setItems(`admin_achievers_${year}`, items);
+
+// Hall of Fame
+const defaultHall: HallOfFameEntry[] = [
+  { id: '1', name: '[ACHIEVER 1]', title: '7 Distinctions', year: '2025', desc: '', image: 'https://images.unsplash.com/photo-1523240695661-92135f3d325e?q=80&w=2000&auto=format&fit=crop' },
+  { id: '2', name: '[ACHIEVER 2]', title: '6 Distinctions', year: '2025', desc: '', image: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2000&auto=format&fit=crop' },
+  { id: '3', name: '[ACHIEVER 3]', title: 'Top in Math', year: '2025', desc: '', image: 'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=2000&auto=format&fit=crop' },
+];
+export const getHallOfFame = () => getItems<HallOfFameEntry>('admin_hall_of_fame').length ? getItems<HallOfFameEntry>('admin_hall_of_fame') : defaultHall;
+export const setHallOfFame = (items: HallOfFameEntry[]) => setItems('admin_hall_of_fame', items);
+
 // Results by year
 const defaultResults: Record<string, YearResults> = {
-  "2025": {
-    overall: 85.5,
-    bachelor: 0,
-    bachelorRate: 0,
-    distinctions: 0,
-    wrote: 0,
-    subjects: [
-      { subject: "Mathematics", rate: 90 },
-      { subject: "Physical Sciences", rate: 85 },
-      { subject: "English HL", rate: 95 },
-      { subject: "Life Sciences", rate: 88 },
-      { subject: "Geography", rate: 92 },
-      { subject: "Accounting", rate: 84 },
-    ]
-  }
+  "2025": { overall: 89.9, bachelor: 206, bachelorRate: 71.8, distinctions: 451, wrote: 287, subjects: [{ subject: "Accounting", rate: 90.6 }, { subject: "Mathematics", rate: 71.1 }, { subject: "Physical Sciences", rate: 82.1 }] },
+  "2024": { overall: 85.4, bachelor: 195, bachelorRate: 68.2, distinctions: 398, wrote: 286, subjects: [{ subject: "Accounting", rate: 88.5 }, { subject: "IsiXhosa HL", rate: 99.1 }] },
+  "2023": { overall: 82.1, bachelor: 178, bachelorRate: 64.5, distinctions: 345, wrote: 276, subjects: [{ subject: "Life Orientation", rate: 100 }, { subject: "Geography", rate: 93.5 }] }
 };
 export const getResultsByYear = (year: string) => getObject<YearResults | null>(`admin_results_${year}`, defaultResults[year] || null);
 export const setResultsByYear = (year: string, data: YearResults) => setObject(`admin_results_${year}`, data);
 
 // Auth
+export const isAuthenticated = () => localStorage.getItem('admin_auth') === 'true';
 export const login = (password: string): boolean => {
-  if (password === 'maclear 2026') {
+  if (password === 'maclear2026') {
     localStorage.setItem('admin_auth', 'true');
     return true;
   }
   return false;
 };
 export const logout = () => localStorage.removeItem('admin_auth');
-export const isAuthenticated = () => localStorage.getItem('admin_auth') === 'true';
-
-// Retaining existing getters for components that rely on them
-export const getInvoices = () => getItems<Invoice>('admin_invoices');
-export const setInvoices = (items: Invoice[]) => setItems('admin_invoices', items);
-export const getSportCodes = () => getItems<SportCode>('admin_sport_codes');
-export const setSportCodes = (items: SportCode[]) => setItems('admin_sport_codes', items);
-export const getWeekendResults = () => getItems<WeekendResult>('admin_weekend_results');
-export const setWeekendResults = (items: WeekendResult[]) => setItems('admin_weekend_results', items);
-export const getSportHallOfFame = () => getItems<SportHallOfFameEntry>('admin_sport_hall_of_fame');
-export const setSportHallOfFame = (items: SportHallOfFameEntry[]) => setItems('admin_sport_hall_of_fame', items);
-export const getHallOfFame = () => getItems<HallOfFameEntry>('admin_hall_of_fame');
-export const setHallOfFame = (items: HallOfFameEntry[]) => setItems('admin_hall_of_fame', items);

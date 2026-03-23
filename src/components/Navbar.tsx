@@ -6,12 +6,10 @@ import { cn } from '../lib/utils';
 const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },
-  { name: 'Extra-Curricular', path: '/extra-curricular' },
-  { name: 'Achievements', path: '/achievements' },
   { name: 'Documents', path: '/documents' },
+  { name: 'Achievements', path: '/achievements' },
+  { name: 'Extra-Curricular', path: '/extra-curricular' },
   { name: 'Admissions', path: '/admissions' },
-  { name: 'School Fees', path: '/school-fees' },
-  { name: 'Policy', path: '/policy' },
   { name: 'Contact', path: '/contact' },
 ];
 
@@ -20,34 +18,32 @@ export const Navbar = () => {
   const location = useLocation();
 
   return (
-    <nav className="glass-nav border-b-2 border-school-primary">
+    <nav className="glass-nav">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex items-center">
             <Link to="/" className="flex items-center gap-3">
-              <img 
-                src="/Logo/Badge.jpg" 
-                alt="Maclear High School Logo" 
-                className="h-14 w-14 rounded-lg object-contain shadow-md"
-              />
+              <div className="h-12 w-12 rounded-xl bg-school-green/10 flex items-center justify-center border border-school-green/20 shadow-lg font-bold text-school-green text-xl">
+                S
+              </div>
               <div className="hidden md:block">
-                <span className="text-xl font-bold text-black block leading-none">Maclear High</span>
-                <span className="text-sm font-semibold text-school-primary uppercase tracking-tighter">School</span>
+                <span className="text-xl font-bold text-school-primary block leading-none">Maclear High School</span>
+                <span className="text-sm font-semibold text-gray-500">HIGH SCHOOL</span>
               </div>
             </Link>
           </div>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center space-x-1">
+          <div className="hidden md:flex items-center space-x-4">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 className={cn(
-                  "px-3 py-2 rounded-md text-sm font-bold transition-colors",
+                  "px-3 py-2 rounded-md text-sm font-medium transition-colors",
                   location.pathname === link.path
-                    ? "text-school-primary bg-red-50"
-                    : "text-gray-700 hover:text-black hover:bg-gray-50"
+                    ? "text-school-green bg-green-50"
+                    : "text-gray-600 hover:text-school-green hover:bg-gray-50"
                 )}
               >
                 {link.name}
@@ -56,10 +52,10 @@ export const Navbar = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="lg:hidden flex items-center">
+          <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-800 hover:text-school-primary p-2 transition-colors"
+              className="text-gray-600 hover:text-school-green p-2"
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
@@ -69,7 +65,7 @@ export const Navbar = () => {
 
       {/* Mobile Nav */}
       {isOpen && (
-        <div className="lg:hidden bg-white border-b border-gray-200">
+        <div className="md:hidden bg-white border-b border-gray-200">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navLinks.map((link) => (
               <Link
@@ -77,10 +73,10 @@ export const Navbar = () => {
                 to={link.path}
                 onClick={() => setIsOpen(false)}
                 className={cn(
-                  "block px-3 py-2 rounded-md text-base font-bold",
+                  "block px-3 py-2 rounded-md text-base font-medium",
                   location.pathname === link.path
-                    ? "text-school-primary bg-red-50"
-                    : "text-gray-700 hover:text-black"
+                    ? "text-school-green bg-green-50"
+                    : "text-gray-600 hover:text-school-green hover:bg-gray-50"
                 )}
               >
                 {link.name}
