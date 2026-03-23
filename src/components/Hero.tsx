@@ -53,7 +53,7 @@ export const Hero = () => {
           <img
             src={slides[currentIndex].url}
             alt={slides[currentIndex].caption}
-            className="h-full w-full object-cover object-top opacity-40"
+            className="h-full w-full object-contain object-center opacity-40 backdrop-blur-md"
             onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
           />
           <div className="absolute bottom-20 left-0 right-0 text-center z-20">
