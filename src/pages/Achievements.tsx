@@ -5,53 +5,50 @@ import { getHallOfFame, getResultsByYear, type HallOfFameEntry, type YearResults
 
 const resultsData = {
   "2025": {
-    overall: 75.4,
-    bachelor: 112,
-    bachelorRate: 51.8,
-    distinctions: 125,
-    wrote: 187,
+    overall: 97.2,
+    bachelor: 42,
+    bachelorRate: 42,
+    distinctions: 25,
+    wrote: 100,
     subjects: [
-      { subject: "Accounting", rate: 90.6 },
-      { subject: "Agricultural Sciences", rate: 97.9 },
-      { subject: "Business Studies", rate: 98.1 },
-      { subject: "Economics", rate: 96.2 },
-      { subject: "English FAL", rate: 100 },
-      { subject: "Geography", rate: 99.3 },
-      { subject: "IsiXhosa HL", rate: 100 },
-      { subject: "History", rate: 97.9 },
+      { subject: "Mathematical Literacy", rate: 100 },
+      { subject: "English First Additional Language", rate: 100 },
+      { subject: "Life Sciences", rate: 100 },
+      { subject: "Tourism", rate: 100 },
+      { subject: "Business Studies", rate: 100 },
+      { subject: "Afrikaans Huistaal", rate: 100 },
+      { subject: "English Home Language", rate: 100 },
+      { subject: "Afrikaans EAT", rate: 100 },
       { subject: "Life Orientation", rate: 100 },
-      { subject: "Life Sciences", rate: 97 },
-      { subject: "Mathematics", rate: 71.1 },
-      { subject: "Physical Sciences", rate: 82.1 },
+      { subject: "Agricultural Sciences", rate: 100 },
+      { subject: "Geography", rate: 100 },
     ]
   },
   "2024": {
-    overall: 88.1,
-    bachelor: 145,
-    bachelorRate: 62.2,
-    distinctions: 198,
-    wrote: 186,
+    overall: 96.2,
+    bachelor: 53.8,
+    bachelorRate: 53.8,
+    distinctions: 35,
+    wrote: 100,
     subjects: [
-      { subject: "Accounting", rate: 88.5 },
-      { subject: "Agricultural Sciences", rate: 95.0 },
-      { subject: "Business Studies", rate: 94.2 },
-      { subject: "Economics", rate: 92.1 },
-      { subject: "English FAL", rate: 98.4 },
-      { subject: "Geography", rate: 96.0 },
-      { subject: "IsiXhosa HL", rate: 99.1 },
-      { subject: "History", rate: 95.5 },
+      { subject: "English Home Language", rate: 100 },
+      { subject: "Afrikaans Huistaal", rate: 100 },
+      { subject: "Afrikaans EAT", rate: 100 },
+      { subject: "English FAL", rate: 100 },
+      { subject: "Mathematics Literacy", rate: 100 },
       { subject: "Life Orientation", rate: 100 },
-      { subject: "Life Sciences", rate: 94.2 },
-      { subject: "Mathematics", rate: 68.5 },
-      { subject: "Physical Sciences", rate: 79.0 },
+      { subject: "Business Studies", rate: 100 },
+      { subject: "Agricultural Sciences", rate: 100 },
+      { subject: "Geography", rate: 100 },
+      { subject: "Tourism", rate: 100 },
     ]
   },
   "2023": {
-    overall: 82.1,
-    bachelor: 178,
-    bachelorRate: 64.5,
-    distinctions: 345,
-    wrote: 276,
+    overall: 100,
+    bachelor: 60,
+    bachelorRate: 60,
+    distinctions: 40,
+    wrote: 100,
     subjects: [
       { subject: "Accounting", rate: 85.0 },
       { subject: "Agricultural Sciences", rate: 92.5 },
@@ -59,13 +56,15 @@ const resultsData = {
       { subject: "Economics", rate: 89.5 },
       { subject: "English FAL", rate: 97.0 },
       { subject: "Geography", rate: 93.5 },
-      { subject: "IsiXhosa HL", rate: 98.5 },
-      { subject: "History", rate: 94.0 },
-      { subject: "Life Orientation", rate: 100 },
-      { subject: "Life Sciences", rate: 91.5 },
-      { subject: "Mathematics", rate: 65.0 },
-      { subject: "Physical Sciences", rate: 75.5 },
     ]
+  },
+  "2022": {
+    overall: 100,
+    bachelor: 50,
+    bachelorRate: 50,
+    distinctions: 30,
+    wrote: 100,
+    subjects: []
   }
 } as const;
 
@@ -79,17 +78,14 @@ const bestEverStudents = [
 
 const topAchieversByYear: Record<string, {name: string, achievement: string, image: string}[]> = {
   "2025": [
-    { name: "Top Achiever 1", achievement: "7 Distinctions", image: "/Achievements/HALL%20OF%20FAME/2025/Achievers%205.jpg" },
-    { name: "Top Achiever 2", achievement: "6 Distinctions", image: "/Achievements/HALL%20OF%20FAME/2025/achievers%203.jpg" },
-    { name: "Top Achiever 3", achievement: "Top in Math", image: "/Achievements/HALL%20OF%20FAME/2025/achievers%204.jpg" },
+    { name: "Bianca", achievement: "4 Distinctions", image: "/Achievements/HALL%20OF%20FAME/2025/Achievers%205.jpg" },
+    { name: "Top Achiever 2", achievement: "Top Results", image: "/Achievements/HALL%20OF%20FAME/2025/achievers%203.jpg" },
   ],
   "2024": [
     { name: "Top Achiever 1", achievement: "Overall Best", image: "/Achievements/HALL%20OF%20FAME/2024/1.jpg" },
   ],
   "2023": [
-    { name: "Top Achiever 1", achievement: "7 Distinctions", image: "/Achievements/HALL%20OF%20FAME/2023/1.jpg" },
-    { name: "Top Achiever 2", achievement: "Top in Physics", image: "/Achievements/HALL%20OF%20FAME/2023/2.jpg" },
-    { name: "Top Achiever 3", achievement: "Top in English", image: "/Achievements/HALL%20OF%20FAME/2023/3.jpg" },
+    { name: "Top Achiever 1", achievement: "Top Results", image: "/Achievements/HALL%20OF%20FAME/2023/1.jpg" },
   ],
 };
 

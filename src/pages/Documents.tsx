@@ -4,7 +4,7 @@ import { FileText, Download, Search, Folder } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { getDocuments, type DocumentItem } from '../admin/utils/storage';
 
-const categories = ['Study Materials', 'Assignments', 'School Calendar', 'Policies', 'General'];
+const categories = ['Study Materials', 'Assignments', 'Timetables', 'School Calendar', 'Policies', 'General'];
 
 export const Documents = () => {
   const [selectedCategory, setSelectedCategory] = useState('Study Materials');

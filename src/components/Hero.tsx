@@ -5,20 +5,24 @@ import { SportResultBoard } from './SportResultBoard';
 
 const slides = [
   {
-    url: "/Hero/hero1.jpg",
+    url: "/Hero/Hero 1.jpg",
     caption: "Excellence in Education"
   },
   {
-    url: "/Hero/hero2.jpg",
+    url: "/Hero/Hero 2.jpg",
     caption: "Empowering Students"
   },
   {
-    url: "/Hero/hero3.jpg",
+    url: "/Hero/Hero 3.jpg",
     caption: "Nurturing Future Leaders"
   },
   {
-    url: "/Hero/hero4.jpg",
+    url: "/Hero/Hero 4.jpg",
     caption: "Building Brighter Futures"
+  },
+  {
+    url: "/Hero/Hero 5.jpg",
+    caption: "Maclear High Pride"
   },
 ];
 

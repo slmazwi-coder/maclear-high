@@ -5,7 +5,7 @@ import { Plus, Trash2, Download, FileText, X, Upload, ShieldCheck, Loader2 } fro
 
 const grades = ['Grade 8', 'Grade 9', 'Grade 10', 'Grade 11', 'Grade 12', 'General/All'];
 const subjects = ['Mathematics', 'English', 'IsiXhosa', 'Physical Sciences', 'Life Sciences', 'Accounting', 'Business Studies', 'Economics', 'Geography', 'History', 'Agriculture', 'Other', 'N/A'];
-const docCategories = ['Study Materials', 'Assignments', 'School Calendar', 'Policies', 'General'];
+const docCategories = ['Study Materials', 'Assignments', 'Timetables', 'School Calendar', 'Policies', 'General'];
 
 export const DocumentsEditor = () => {
   const [items, setItems] = useState<DocumentItem[]>(getDocuments());

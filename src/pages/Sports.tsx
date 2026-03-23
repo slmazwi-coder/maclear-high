@@ -88,6 +88,65 @@ export const Sports = () => {
               </div>
             </div>
 
+            {/* Fixtures & First Team Showcase (Conditional for Rugby & Netball) */}
+            {(currentSport.name.toLowerCase() === 'rugby' || currentSport.name.toLowerCase() === 'netball') && (
+              <div className="mb-16">
+                <h3 className="text-3xl font-black text-school-primary flex items-center justify-center gap-3 mb-8 uppercase tracking-tighter">
+                  <Trophy className="text-yellow-500" /> 
+                  First Team & Latest Fixtures
+                </h3>
+                
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                  {/* First Team Image */}
+                  <div className="bg-gray-50 rounded-2xl p-6 shadow-md border border-gray-100">
+                    <h4 className="text-xl font-bold text-school-primary mb-4 text-center">First Team Squad</h4>
+                    <div className="aspect-video bg-gray-200 rounded-xl overflow-hidden shadow-inner">
+                      <img 
+                        src={`/Sports/${currentSport.name.toLowerCase() === 'rugby' ? 'rugby first team.jpg' : 'Netball first team.jpg'}`} 
+                        alt={`${currentSport.name} First Team`}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Fixtures Image */}
+                  <div className="bg-gray-50 rounded-2xl p-6 shadow-md border border-gray-100">
+                    <h4 className="text-xl font-bold text-school-primary mb-4 text-center">Season Fixtures</h4>
+                    <div className="aspect-[3/4] lg:aspect-video bg-gray-200 rounded-xl overflow-hidden shadow-inner">
+                      <img 
+                        src={`/Sports/${currentSport.name === 'Rugby' ? 'Rugby fixture.jpg' : 'Netball fixture.jpg'}`} 
+                        alt={`${currentSport.name} Fixtures`}
+                        className="w-full h-full object-contain bg-white"
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* League Results */}
+                  <div className="lg:col-span-2 bg-school-primary/5 rounded-2xl p-6 shadow-md border border-school-primary/20">
+                    <h4 className="text-xl font-bold text-school-primary mb-6 text-center">Latest League Results</h4>
+                    <div className={`grid grid-cols-1 ${currentSport.name === 'Rugby' ? 'md:grid-cols-2' : ''} gap-8`}>
+                      {currentSport.name === 'Rugby' ? (
+                        <>
+                          <div className="aspect-video bg-white rounded-xl overflow-hidden shadow-sm">
+                            <img src="/Sports/Rugby league resulstfirst.jpg" alt="Rugby First Team Results" className="w-full h-full object-contain" />
+                            <p className="text-center font-bold text-sm py-2">First Team Results</p>
+                          </div>
+                          <div className="aspect-video bg-white rounded-xl overflow-hidden shadow-sm">
+                            <img src="/Sports/Rugby league result u13.jpg" alt="Rugby U13 Results" className="w-full h-full object-contain" />
+                            <p className="text-center font-bold text-sm py-2">U13 Results</p>
+                          </div>
+                        </>
+                      ) : (
+                        <div className="aspect-video md:aspect-[21/9] bg-white rounded-xl overflow-hidden shadow-sm max-w-4xl mx-auto w-full">
+                          <img src="/Sports/Netball league results.jpg" alt="Netball League Results" className="w-full h-full object-contain" />
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {/* Hall of Fame for the specific sport */}
             <div className="mb-16 text-center">
               <h3 className="text-3xl font-black text-school-primary flex items-center justify-center gap-3 mb-4 uppercase tracking-tighter">
