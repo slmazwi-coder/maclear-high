@@ -4,10 +4,10 @@ import { FileText, Download, Search, Folder } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { getDocuments, type DocumentItem } from '../admin/utils/storage';
 
-const grades = ['Grade 8', 'Grade 9', 'Grade 10', 'Grade 11', 'Grade 12'];
+const categories = ['Study Materials', 'Assignments', 'School Calendar', 'Policies', 'General'];
 
 export const Documents = () => {
-  const [selectedGrade, setSelectedGrade] = useState('Grade 12');
+  const [selectedCategory, setSelectedCategory] = useState('Study Materials');
   const [searchQuery, setSearchQuery] = useState('');
   const [allDocs, setAllDocs] = useState<DocumentItem[]>(getDocuments());
 
@@ -30,8 +30,8 @@ export const Documents = () => {
   };
 
   const filteredDocs = allDocs.filter(doc => 
-    doc.grade === selectedGrade && 
-    doc.title.toLowerCase().includes(searchQuery.toLowerCase())
+    (doc.category === selectedCategory || (!doc.category && selectedCategory === 'General')) && 
+    doc.title?.toLowerCase().includes(searchQuery.toLowerCase()) || doc.name?.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
@@ -42,18 +42,18 @@ export const Documents = () => {
         <div className="bg-white rounded-2xl shadow-sm p-8 mb-12">
           <div className="flex flex-col md:flex-row gap-6 items-center justify-between">
             <div className="flex flex-wrap gap-2">
-              {grades.map((grade) => (
+              {categories.map((cat) => (
                 <button
-                  key={grade}
-                  onClick={() => setSelectedGrade(grade)}
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
                   className={cn(
-                    "px-6 py-2 rounded-full font-semibold transition-all",
-                    selectedGrade === grade 
+                    "px-6 py-2 rounded-full font-semibold transition-all text-sm",
+                    selectedCategory === cat 
                       ? "bg-school-primary text-white shadow-lg"
                       : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                   )}
                 >
-                  {grade}
+                  {cat}
                 </button>
               ))}
             </div>
@@ -84,9 +84,9 @@ export const Documents = () => {
                   <div className="p-3 bg-blue-50 text-school-primary rounded-xl group-hover:bg-school-primary group-hover:text-white transition-colors">
                     <FileText size={24} />
                   </div>
-                  <div className="flex-grow">
-                    <h3 className="font-bold text-gray-800 mb-1">{doc.title}</h3>
-                    <p className="text-sm text-gray-500 mb-4">Resource • {doc.grade}</p>
+                  <div className="flex-grow min-w-0 pr-4">
+                    <h3 className="font-bold text-gray-800 mb-1 truncate">{doc.name || doc.title}</h3>
+                    <p className="text-sm text-gray-500 mb-4">{doc.category || 'Directory'} • {doc.grade}</p>
                     <button 
                       onClick={() => handleDownload(doc)}
                       className="flex items-center gap-2 text-school-primary font-bold hover:underline"

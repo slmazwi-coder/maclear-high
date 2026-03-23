@@ -9,7 +9,8 @@ const adminTabs = [
   { path: '/admin/about', label: 'About', icon: Info },
   { path: '/admin/achievements', label: 'Achievements', icon: Trophy },
   { path: '/admin/documents', label: 'Documents', icon: FileText },
-  { path: '/admin/extra-curricular', label: 'Extra-Curricular', icon: Activity },
+  { path: '/admin/academic', label: 'Academic', icon: Activity },
+  { path: '/admin/sports', label: 'Sports', icon: Trophy },
   { path: '/admin/applications', label: 'Applications', icon: Users },
   { path: '/admin/contact', label: 'Contact', icon: Phone },
 ];

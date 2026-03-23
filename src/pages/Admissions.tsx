@@ -56,78 +56,100 @@ export const Admissions = () => {
           </div>
 
           <form onSubmit={handleSubmit} className="p-8 space-y-8">
+            {/* Student Details */}
+            <h3 className="text-xl font-bold text-school-primary border-b pb-2 mb-4 mt-8">Student Details</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label className="text-sm font-bold text-gray-700">Student First Name</label>
-                <input 
-                  required
-                  type="text" 
-                  className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-primary/20 outline-none"
-                  placeholder="Enter first name"
-                />
+                <input required type="text" className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-primary/20 outline-none" placeholder="Enter first name" />
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-bold text-gray-700">Student Surname</label>
-                <input 
-                  required
-                  type="text" 
-                  className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-primary/20 outline-none"
-                  placeholder="Enter surname"
-                />
+                <input required type="text" className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-primary/20 outline-none" placeholder="Enter surname" />
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-bold text-gray-700">Applying for Grade</label>
                 <select className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-primary/20 outline-none">
-                  <option>Grade 8</option>
-                  <option>Grade 9</option>
-                  <option>Grade 10</option>
-                  <option>Grade 11</option>
-                  <option>Grade 12</option>
+                  <option>Grade 8</option><option>Grade 9</option><option>Grade 10</option>
+                  <option>Grade 11</option><option>Grade 12</option>
                 </select>
               </div>
+            </div>
+
+            {/* Parent / Guardian Details */}
+            <h3 className="text-xl font-bold text-school-primary border-b pb-2 mb-4 mt-8">Parent / Guardian Details</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="text-sm font-bold text-gray-700">Parent/Guardian Name</label>
-                <input 
-                  required
-                  type="text" 
-                  className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-primary/20 outline-none"
-                  placeholder="Full name"
-                />
+                <label className="text-sm font-bold text-gray-700">Guardian Full Name</label>
+                <input required type="text" className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-primary/20 outline-none" placeholder="First and Last Name" />
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-bold text-gray-700">Parent Email</label>
-                <input 
-                  required
-                  type="email" 
-                  className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-primary/20 outline-none"
-                  placeholder="email@example.com"
-                />
+                <label className="text-sm font-bold text-gray-700">Guardian ID Number</label>
+                <input required type="text" className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-primary/20 outline-none" placeholder="RSA ID Number" />
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-bold text-gray-700">Parent Phone Number</label>
-                <input 
-                  required
-                  type="tel" 
-                  className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-primary/20 outline-none"
-                  placeholder="012 345 6789"
-                />
+                <label className="text-sm font-bold text-gray-700">Guardian Email</label>
+                <input required type="email" className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-primary/20 outline-none" placeholder="email@example.com" />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-gray-700">Guardian Phone Number</label>
+                <input required type="tel" className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-primary/20 outline-none" placeholder="012 345 6789" />
+              </div>
+              <div className="space-y-2 md:col-span-2">
+                <label className="text-sm font-bold text-gray-700">Physical Residential Address</label>
+                <input required type="text" className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-primary/20 outline-none" placeholder="Full street address" />
+              </div>
+            </div>
+
+            {/* Medical Information */}
+            <h3 className="text-xl font-bold text-school-primary border-b pb-2 mb-4 mt-8">Medical Information</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-gray-700">Medical Aid Name (if applicable)</label>
+                <input type="text" className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-primary/20 outline-none" placeholder="e.g. Discovery Health" />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-gray-700">Medical Aid Number</label>
+                <input type="text" className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-primary/20 outline-none" placeholder="Member number" />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-gray-700">Family Doctor Name</label>
+                <input required type="text" className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-primary/20 outline-none" placeholder="Dr. XYZ" />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-gray-700">Doctor Contact Number</label>
+                <input required type="tel" className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-primary/20 outline-none" placeholder="012 345 6789" />
+              </div>
+              <div className="space-y-2 md:col-span-2">
+                <label className="text-sm font-bold text-gray-700">Existing Medical Conditions / Allergies</label>
+                <textarea className="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-school-primary/20 outline-none" placeholder="Please list any allergies, chronic conditions, etc." rows={3}></textarea>
               </div>
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-lg font-bold text-gray-800 flex items-center gap-2">
+              <h3 className="text-lg font-bold text-gray-800 flex items-center gap-2 mt-8">
                 <Upload size={20} className="text-school-primary" /> Required Documents (PDF)
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="border-2 border-dashed border-gray-200 rounded-2xl p-6 text-center hover:border-school-primary transition-colors cursor-pointer">
-                  <FileText className="mx-auto text-gray-400 mb-2" />
-                  <p className="text-sm font-medium">Latest Report Card</p>
-                  <p className="text-xs text-gray-400">Click to upload PDF</p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="border border-dashed border-gray-300 bg-gray-50 rounded-2xl p-4 text-center hover:border-school-primary transition-colors cursor-pointer">
+                  <FileText className="mx-auto text-gray-400 mb-2" size={24} />
+                  <p className="text-xs font-bold text-gray-700">Latest Report Card</p>
                 </div>
-                <div className="border-2 border-dashed border-gray-200 rounded-2xl p-6 text-center hover:border-school-primary transition-colors cursor-pointer">
-                  <FileText className="mx-auto text-gray-400 mb-2" />
-                  <p className="text-sm font-medium">Student ID / Birth Certificate</p>
-                  <p className="text-xs text-gray-400">Click to upload PDF</p>
+                <div className="border border-dashed border-gray-300 bg-gray-50 rounded-2xl p-4 text-center hover:border-school-primary transition-colors cursor-pointer">
+                  <FileText className="mx-auto text-gray-400 mb-2" size={24} />
+                  <p className="text-xs font-bold text-gray-700">Student ID / Birth Cert</p>
+                </div>
+                <div className="border border-dashed border-gray-300 bg-gray-50 rounded-2xl p-4 text-center hover:border-school-primary transition-colors cursor-pointer">
+                  <FileText className="mx-auto text-gray-400 mb-2" size={24} />
+                  <p className="text-xs font-bold text-gray-700">Guardian ID Copy</p>
+                </div>
+                <div className="border border-dashed border-gray-300 bg-gray-50 rounded-2xl p-4 text-center hover:border-school-primary transition-colors cursor-pointer">
+                  <FileText className="mx-auto text-gray-400 mb-2" size={24} />
+                  <p className="text-xs font-bold text-gray-700">Clinic / Health Card</p>
+                </div>
+                <div className="border border-dashed border-gray-300 bg-gray-50 rounded-2xl p-4 text-center hover:border-school-primary transition-colors cursor-pointer md:col-start-2">
+                  <FileText className="mx-auto text-gray-400 mb-2" size={24} />
+                  <p className="text-xs font-bold text-gray-700">Proof of Residence</p>
                 </div>
               </div>
             </div>

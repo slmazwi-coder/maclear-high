@@ -13,6 +13,7 @@ export interface DocumentItem {
   name: string;
   grade: string;
   subject: string;
+  category?: string;
   fileData: string; // base64 for demo
   fileName: string;
   uploadDate: string;
@@ -195,18 +196,36 @@ export const setAbout = (info: AboutInfo) => setObject('admin_about', info);
 export const getPolicy = () => getObject<PolicyInfo>('admin_policy', defaultPolicy);
 export const setPolicy = (info: PolicyInfo) => setObject('admin_policy', info);
 
-// Activities
-const defaultActivities: Activity[] = [
-  { id: '1', name: 'Soccer', category: 'Sport', description: 'The beautiful game — our teams compete passionately at district and regional tournaments.', image: '' },
-  { id: '2', name: 'Rugby', category: 'Sport', description: 'Our flagship sport with a rich history of regional dominance and provincial representation.', image: '' },
-  { id: '3', name: 'Netball', category: 'Sport', description: 'Competitive teams across all age groups with provincial accolades.', image: '' },
-  { id: '4', name: 'Athletics', category: 'Sport', description: 'Track and field excellence — developing speed, strength, and endurance across all events.', image: '' },
-  { id: '5', name: 'Spelling Bee', category: 'Academic', description: 'Sharpening language skills and vocabulary. National-level finalists multiple years running.', image: '' },
-  { id: '6', name: 'Debating', category: 'Academic', description: 'Developing critical thinkers and eloquent future leaders through competitive debate.', image: '' },
-  { id: '7', name: 'Choral Music', category: 'Culture', description: 'Award-winning choir known for excellence in regional and provincial competitions.', image: '' }
+// Academic Activities
+const defaultAcademic: Activity[] = [
+  { id: '1', name: 'Spelling Bee', category: 'Academic', description: 'Sharpening language skills and vocabulary. National-level finalists multiple years running.', image: '' },
+  { id: '2', name: 'Debating', category: 'Academic', description: 'Developing critical thinkers and eloquent future leaders through competitive debate.', image: '' },
+  { id: '3', name: 'Math Olympiad', category: 'Academic', description: 'Challenging our brightest minds in national mathematics competitions.', image: '' },
+  { id: '4', name: 'Science Fair', category: 'Academic', description: 'Fostering innovation and practical application of scientific principles.', image: '' },
+  { id: '5', name: 'Choral Music', category: 'Culture', description: 'Award-winning choir known for excellence in regional and provincial competitions.', image: '' }
 ];
-export const getActivities = () => getItems<Activity>('admin_activities').length ? getItems<Activity>('admin_activities') : defaultActivities;
-export const setActivities = (items: Activity[]) => setItems('admin_activities', items);
+export const getAcademicActivities = () => getItems<Activity>('admin_academic').length ? getItems<Activity>('admin_academic') : defaultAcademic;
+export const setAcademicActivities = (items: Activity[]) => setItems('admin_academic', items);
+
+// Sports
+export interface Sport {
+  id: string;
+  name: string;
+  image: string;
+  description: string;
+  ageGroups: string[]; // e.g. ["u/13", "u/15", "Senior Team"]
+  hallOfFame: { name: string; achievement: string; image: string }[];
+}
+const defaultSports: Sport[] = [
+  { id: 's1', name: 'Rugby', image: '', description: 'Our flagship sport with a rich history of regional dominance.', ageGroups: ['u/13', 'u/15', 'Senior Team'], hallOfFame: [] },
+  { id: 's2', name: 'Netball', image: '', description: 'Competitive teams across all age groups with provincial accolades.', ageGroups: ['u/13', 'u/15', 'Senior Team'], hallOfFame: [] },
+  { id: 's3', name: 'Cricket', image: '', description: 'Developing discipline and teamwork on the pitch.', ageGroups: ['u/13', 'u/15', 'Senior Team'], hallOfFame: [] },
+  { id: 's4', name: 'Soccer', image: '', description: 'The beautiful game — our teams compete passionately at district tournaments.', ageGroups: ['u/13', 'u/15', 'Senior Team'], hallOfFame: [] },
+  { id: 's5', name: 'Hockey', image: '', description: 'Fast-paced action and supreme skill development.', ageGroups: ['u/13', 'u/15', 'Senior Team'], hallOfFame: [] },
+  { id: 's6', name: 'Athletics', image: '', description: 'Track and field excellence — developing speed, strength, and endurance.', ageGroups: ['u/13', 'u/15', 'Senior Team'], hallOfFame: [] },
+];
+export const getSports = () => getItems<Sport>('admin_sports').length ? getItems<Sport>('admin_sports') : defaultSports;
+export const setSports = (items: Sport[]) => setItems('admin_sports', items);
 
 // Achievers by year
 export const getAchieversByYear = (year: string) => getItems<AchieverEntry>(`admin_achievers_${year}`);
@@ -214,18 +233,21 @@ export const setAchieversByYear = (year: string, items: AchieverEntry[]) => setI
 
 // Hall of Fame
 const defaultHall: HallOfFameEntry[] = [
-  { id: '1', name: '[ACHIEVER 1]', title: '7 Distinctions', year: '2025', desc: '', image: 'https://images.unsplash.com/photo-1523240695661-92135f3d325e?q=80&w=2000&auto=format&fit=crop' },
-  { id: '2', name: '[ACHIEVER 2]', title: '6 Distinctions', year: '2025', desc: '', image: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2000&auto=format&fit=crop' },
-  { id: '3', name: '[ACHIEVER 3]', title: 'Top in Math', year: '2025', desc: '', image: 'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=2000&auto=format&fit=crop' },
+  { id: '1', name: '[ACHIEVER 1]', title: '7 Distinctions', year: '2025', desc: 'Awaiting Records', image: '' },
+  { id: '2', name: '[ACHIEVER 2]', title: '6 Distinctions', year: '2025', desc: 'Awaiting Records', image: '' },
+  { id: '3', name: '[ACHIEVER 1]', title: 'Overall Best', year: '2024', desc: 'Awaiting Records', image: '' },
+  { id: '4', name: '[ACHIEVER 2]', title: 'Top in Sciences', year: '2024', desc: 'Awaiting Records', image: '' },
+  { id: '5', name: '[ACHIEVER 1]', title: '7 Distinctions', year: '2023', desc: 'Awaiting Records', image: '' },
+  { id: '6', name: '[ACHIEVER 2]', title: 'Top in Commerce', year: '2023', desc: 'Awaiting Records', image: '' },
 ];
 export const getHallOfFame = () => getItems<HallOfFameEntry>('admin_hall_of_fame').length ? getItems<HallOfFameEntry>('admin_hall_of_fame') : defaultHall;
 export const setHallOfFame = (items: HallOfFameEntry[]) => setItems('admin_hall_of_fame', items);
 
 // Results by year
 const defaultResults: Record<string, YearResults> = {
-  "2025": { overall: 89.9, bachelor: 206, bachelorRate: 71.8, distinctions: 451, wrote: 287, subjects: [{ subject: "Accounting", rate: 90.6 }, { subject: "Mathematics", rate: 71.1 }, { subject: "Physical Sciences", rate: 82.1 }] },
-  "2024": { overall: 85.4, bachelor: 195, bachelorRate: 68.2, distinctions: 398, wrote: 286, subjects: [{ subject: "Accounting", rate: 88.5 }, { subject: "IsiXhosa HL", rate: 99.1 }] },
-  "2023": { overall: 82.1, bachelor: 178, bachelorRate: 64.5, distinctions: 345, wrote: 276, subjects: [{ subject: "Life Orientation", rate: 100 }, { subject: "Geography", rate: 93.5 }] }
+  "2025": { overall: 75.4, bachelor: 0, bachelorRate: 0, distinctions: 0, wrote: 0, subjects: [{ subject: "Accounting", rate: 0 }] },
+  "2024": { overall: 88.1, bachelor: 0, bachelorRate: 0, distinctions: 0, wrote: 0, subjects: [{ subject: "IsiXhosa HL", rate: 0 }] },
+  "2023": { overall: 82.1, bachelor: 0, bachelorRate: 0, distinctions: 0, wrote: 0, subjects: [{ subject: "Life Orientation", rate: 0 }] }
 };
 export const getResultsByYear = (year: string) => getObject<YearResults | null>(`admin_results_${year}`, defaultResults[year] || null);
 export const setResultsByYear = (year: string, data: YearResults) => setObject(`admin_results_${year}`, data);

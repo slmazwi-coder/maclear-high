@@ -60,27 +60,27 @@ export const SchoolFees = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Instructions & Banking */}
           <div className="lg:col-span-1 space-y-8">
-            <section className="bg-black text-white p-8 rounded-[2.5rem] border-l-8 border-school-primary shadow-2xl">
-              <h2 className="text-2xl font-black mb-6 uppercase tracking-tighter">Banking Details</h2>
+            <section className="bg-blue-50/50 text-gray-900 p-8 rounded-[2.5rem] border border-blue-100 border-l-8 border-l-school-primary shadow-xl">
+              <h2 className="text-2xl font-black mb-6 uppercase tracking-tighter text-school-primary">Banking Details</h2>
               <div className="space-y-4">
-                <div className="pb-4 border-b border-gray-800">
-                  <p className="text-[10px] text-gray-400 font-black uppercase tracking-widest mb-1">Account Holder</p>
-                  <p className="font-bold">Maclear High School</p>
+                <div className="pb-4 border-b border-gray-200">
+                  <p className="text-[10px] text-gray-500 font-black uppercase tracking-widest mb-1">Account Holder</p>
+                  <p className="font-bold text-gray-800">Maclear High School</p>
                 </div>
-                <div className="pb-4 border-b border-gray-800">
-                  <p className="text-[10px] text-gray-400 font-black uppercase tracking-widest mb-1">Bank</p>
-                  <p className="font-bold">First National Bank (FNB)</p>
+                <div className="pb-4 border-b border-gray-200">
+                  <p className="text-[10px] text-gray-500 font-black uppercase tracking-widest mb-1">Bank</p>
+                  <p className="font-bold text-gray-800">First National Bank (FNB)</p>
                 </div>
-                <div className="pb-4 border-b border-gray-800">
-                  <p className="text-[10px] text-gray-400 font-black uppercase tracking-widest mb-1">Account Number</p>
+                <div className="pb-4 border-b border-gray-200">
+                  <p className="text-[10px] text-gray-500 font-black uppercase tracking-widest mb-1">Account Number</p>
                   <p className="font-bold text-school-primary text-xl">62012345678</p>
                 </div>
-                <div className="pb-4 border-b border-gray-800">
-                  <p className="text-[10px] text-gray-400 font-black uppercase tracking-widest mb-1">Branch Code</p>
-                  <p className="font-bold">250655</p>
+                <div className="pb-4 border-b border-gray-200">
+                  <p className="text-[10px] text-gray-500 font-black uppercase tracking-widest mb-1">Branch Code</p>
+                  <p className="font-bold text-gray-800">250655</p>
                 </div>
                 <div>
-                  <p className="text-[10px] text-gray-400 font-black uppercase tracking-widest mb-1">Reference</p>
+                  <p className="text-[10px] text-gray-500 font-black uppercase tracking-widest mb-1">Reference</p>
                   <p className="font-bold text-school-primary italic">Student Name & Grade</p>
                 </div>
               </div>
@@ -153,7 +153,7 @@ export const SchoolFees = () => {
                       />
                     </div>
                   </div>
-                  <button type="submit" className="w-full btn-primary bg-black hover:bg-school-primary py-5 text-white font-black uppercase tracking-[0.3em] transition-all">
+                  <button type="submit" className="w-full btn-primary bg-school-primary hover:bg-blue-800 py-5 text-white font-black uppercase tracking-[0.3em] transition-all">
                     Create Official Invoice
                   </button>
                 </form>

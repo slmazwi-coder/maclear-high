@@ -34,27 +34,25 @@ export const About = () => {
             className="rounded-2xl overflow-hidden shadow-2xl"
           >
             <img 
-              src="/Campus/campus1.jpg" 
-              alt="School Campus" 
+              src="/About/Campus.jpg" 
+              alt="Maclear High School Campus" 
               className="w-full h-full object-cover"
-              onError={(e) => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1541339907198-e08756ebafe3?q=80&w=2070&auto=format&fit=crop'; }}
+              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
             />
           </motion.div>
         </div>
 
-        {/* Principal's Message */}
+        {/* Leadership & Staff */}
         <section className="bg-gray-50 rounded-3xl p-12 mb-24 relative overflow-hidden">
           <div className="absolute top-0 right-0 p-8 text-school-primary/10">
             <Quote size={120} />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start mb-16">
             <div className="col-span-1">
-              <div className="aspect-square rounded-2xl overflow-hidden border-4 border-white shadow-lg">
-                <img 
-                  src="https://images.unsplash.com/photo-1554126807-6b10f6f6692a?q=80&w=2000&auto=format&fit=crop" 
-                  alt="Principal" 
-                  className="w-full h-full object-cover object-top"
-                />
+              <div className="aspect-square rounded-2xl overflow-hidden border-4 border-white shadow-lg bg-gray-200 flex flex-col items-center justify-center text-gray-400">
+                <User size={64} className="mb-2 opacity-50" />
+                <span className="font-bold text-sm tracking-widest uppercase">Image Placeholder</span>
               </div>
               <div className="mt-4 text-center">
                 <h3 className="text-xl font-bold text-school-primary">{data.principalName}</h3>
@@ -68,6 +66,32 @@ export const About = () => {
                   <p key={i}>"{p}"</p>
                 ))}
               </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-gray-200 pt-12">
+            {/* Deputy Principal */}
+            <div className="flex flex-col items-center text-center">
+              <div className="w-48 h-48 rounded-2xl overflow-hidden border-4 border-white shadow-lg bg-gray-200 flex flex-col items-center justify-center text-gray-400 mb-4">
+                <User size={48} className="mb-2 opacity-50" />
+                <span className="font-bold text-xs tracking-widest uppercase">Image Placeholder</span>
+              </div>
+              <h3 className="text-xl font-bold text-school-primary">Mrs. Voorster</h3>
+              <p className="text-gray-500">Deputy Principal</p>
+            </div>
+
+            {/* RCL Student Council */}
+            <div className="flex flex-col items-center text-center">
+              <div className="w-full max-w-sm rounded-2xl overflow-hidden shadow-lg mb-4 bg-gray-200 aspect-video">
+                <img 
+                  src="/About/RCL STudent Council.jpg" 
+                  alt="RCL Student Council" 
+                  className="w-full h-full object-cover"
+                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                />
+              </div>
+              <h3 className="text-xl font-bold text-school-primary">RCL Student Council</h3>
+              <p className="text-gray-500">Student Leadership</p>
             </div>
           </div>
         </section>

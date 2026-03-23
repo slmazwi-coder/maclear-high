@@ -167,19 +167,19 @@ export const Achievements = () => {
               <Star size={200} className="text-yellow-600" />
             </div>
             <div className="relative z-10 flex flex-col md:flex-row items-center gap-10">
-              <div className="w-40 h-40 bg-yellow-400 rounded-full flex flex-col items-center justify-center text-yellow-900 border-8 border-white shadow-lg shrink-0">
-                <span className="text-4xl font-black">95.4%</span>
-                <span className="text-sm font-bold uppercase tracking-tighter italic">Pass Rate</span>
+              <div className="w-40 h-40 bg-gray-200 rounded-full flex flex-col items-center justify-center text-gray-500 border-8 border-white shadow-lg shrink-0">
+                <span className="text-3xl font-black">[TBD]%</span>
+                <span className="text-sm font-bold uppercase tracking-tighter italic text-center leading-tight mt-1">Record<br/>Unknown</span>
               </div>
               <div>
-                <div className="flex items-center gap-2 text-yellow-700 font-bold uppercase tracking-widest text-sm mb-2">
+                <div className="flex items-center gap-2 text-school-primary font-bold uppercase tracking-widest text-sm mb-2">
                   <Star size={16} fill="currentColor" /> Highest Historic Achievement <Star size={16} fill="currentColor" />
                 </div>
                 <h2 className="text-3xl md:text-5xl font-black text-school-primary mb-4">
-                  2019: A Year of Unparalleled Excellence
+                  [Highest Year]: Awaiting Records
                 </h2>
                 <p className="text-lg text-gray-700 max-w-2xl italic leading-relaxed">
-                  "Maclear High School continues to strive for academic excellence. Our historic achievements remain a testament to the dedication of our students and the hard work of our academic staff."
+                  "Maclear High School has a rich history of academic excellence. Our historic achievements are currently being compiled from past records. This section is a placeholder to be updated once the information is available."
                 </p>
               </div>
             </div>

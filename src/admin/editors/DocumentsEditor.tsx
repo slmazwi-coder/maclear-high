@@ -1,16 +1,18 @@
+import React, { useState } from 'react';
 import { getDocuments, setDocuments, generateId, type DocumentItem } from '../utils/storage';
 import { runFullDefenseScan } from '../utils/defense';
 import { Plus, Trash2, Download, FileText, X, Upload, ShieldCheck, Loader2 } from 'lucide-react';
 
-const grades = ['Grade 8', 'Grade 9', 'Grade 10', 'Grade 11', 'Grade 12'];
-const subjects = ['Mathematics', 'English', 'IsiXhosa', 'Physical Sciences', 'Life Sciences', 'Accounting', 'Business Studies', 'Economics', 'Geography', 'History', 'Agriculture', 'Other'];
+const grades = ['Grade 8', 'Grade 9', 'Grade 10', 'Grade 11', 'Grade 12', 'General/All'];
+const subjects = ['Mathematics', 'English', 'IsiXhosa', 'Physical Sciences', 'Life Sciences', 'Accounting', 'Business Studies', 'Economics', 'Geography', 'History', 'Agriculture', 'Other', 'N/A'];
+const docCategories = ['Study Materials', 'Assignments', 'School Calendar', 'Policies', 'General'];
 
 export const DocumentsEditor = () => {
   const [items, setItems] = useState<DocumentItem[]>(getDocuments());
   const [filterGrade, setFilterGrade] = useState('');
   const [filterSubject, setFilterSubject] = useState('');
   const [showUpload, setShowUpload] = useState(false);
-  const [newDoc, setNewDoc] = useState({ grade: grades[0], subject: subjects[0], fileName: '', fileData: '' });
+  const [newDoc, setNewDoc] = useState({ category: docCategories[0], grade: grades[0], subject: subjects[0], fileName: '', fileData: '' });
 
   const [isScanning, setIsScanning] = useState(false);
 
@@ -47,6 +49,7 @@ export const DocumentsEditor = () => {
       name: newDoc.fileName.replace(/\.[^/.]+$/, ''),
       grade: newDoc.grade,
       subject: newDoc.subject,
+      category: newDoc.category,
       fileData: newDoc.fileData,
       fileName: newDoc.fileName,
       uploadDate: new Date().toISOString().split('T')[0],
@@ -55,7 +58,7 @@ export const DocumentsEditor = () => {
     setDocuments(updated);
     setItems(updated);
     setShowUpload(false);
-    setNewDoc({ grade: grades[0], subject: subjects[0], fileName: '', fileData: '' });
+    setNewDoc({ category: docCategories[0], grade: grades[0], subject: subjects[0], fileName: '', fileData: '' });
   };
 
   const remove = (id: string) => {
@@ -87,7 +90,13 @@ export const DocumentsEditor = () => {
             <h2 className="text-lg font-bold">Upload New Document</h2>
             <button onClick={() => setShowUpload(false)}><X size={20} className="text-gray-400" /></button>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+            <div>
+              <label className="block text-sm text-gray-400 mb-1">Category</label>
+              <select value={newDoc.category} onChange={(e) => setNewDoc({ ...newDoc, category: e.target.value })} className="w-full bg-gray-700 border border-gray-600 rounded-xl px-4 py-2 text-white">
+                {docCategories.map(c => <option key={c} value={c}>{c}</option>)}
+              </select>
+            </div>
             <div>
               <label className="block text-sm text-gray-400 mb-1">Grade</label>
               <select value={newDoc.grade} onChange={(e) => setNewDoc({ ...newDoc, grade: e.target.value })} className="w-full bg-gray-700 border border-gray-600 rounded-xl px-4 py-2 text-white">
@@ -102,8 +111,8 @@ export const DocumentsEditor = () => {
             </div>
             <div>
               <label className="block text-sm text-gray-400 mb-1">File</label>
-              <label className="flex items-center gap-2 bg-gray-700 border border-gray-600 rounded-xl px-4 py-2 cursor-pointer hover:bg-gray-600 text-white">
-                <Upload size={16} /> {newDoc.fileName || 'Choose file...'}
+              <label className="flex items-center gap-2 bg-gray-700 border border-gray-600 rounded-xl px-4 py-2 cursor-pointer hover:bg-gray-600 text-white truncate">
+                <Upload size={16} className="shrink-0" /> <span className="truncate">{newDoc.fileName || 'Choose file...'}</span>
                 <input type="file" onChange={handleFileUpload} className="hidden" />
               </label>
             </div>

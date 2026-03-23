@@ -1,11 +1,11 @@
-import { getActivities, setActivities, generateId, type Activity } from '../utils/storage';
+import { getAcademicActivities, setAcademicActivities, type Activity } from '../utils/storage';
 import { runFullDefenseScan } from '../utils/defense';
 import { Plus, Trash2, Save, X, ImageIcon, Pencil, ShieldCheck, Loader2 } from 'lucide-react';
+import { useState } from 'react'; // Added useState import
+import { BookOpenText as ActivityIcon } from 'lucide-react'; // Added ActivityIcon import
 
-const categories = ['Sports', 'Arts & Culture', 'Academic Clubs', 'Community Service', 'Other'];
-
-export const ExtraCurricularEditor = () => {
-  const [items, setItems] = useState<Activity[]>(getActivities());
+export const AcademicEditor = () => {
+  const [activities, setActivitiesState] = useState<Activity[]>(getAcademicActivities());
   const [editing, setEditing] = useState<Activity | null>(null);
   const [isNew, setIsNew] = useState(false);
 
@@ -15,7 +15,7 @@ export const ExtraCurricularEditor = () => {
     if (!editing) return;
 
     setIsScanning(true);
-    const result = await runFullDefenseScan(editing, 'extracurricular');
+    const result = await runFullDefenseScan(editing, 'academic'); // Changed type to 'academic'
     setIsScanning(false);
 
     if (!result.safe) {
@@ -23,23 +23,23 @@ export const ExtraCurricularEditor = () => {
       return;
     }
 
-    let updated: Activity[];
+    let newActivities: Activity[];
     if (isNew) {
-      updated = [...items, editing];
+      newActivities = [...activities, { ...editing, id: Date.now().toString() }]; // Use Date.now().toString() for new ID
     } else {
-      updated = items.map(i => i.id === editing.id ? editing : i);
+      newActivities = activities.map(a => a.id === editing.id ? editing : a);
     }
-    setActivities(updated);
-    setItems(updated);
+    setActivitiesState(newActivities);
+    setAcademicActivities(newActivities);
     setEditing(null);
     setIsNew(false);
   };
 
   const remove = (id: string) => {
     if (!confirm('Remove this activity?')) return;
-    const updated = items.filter(i => i.id !== id);
-    setActivities(updated);
-    setItems(updated);
+    const newActivities = activities.filter(a => a.id !== id);
+    setActivitiesState(newActivities);
+    setAcademicActivities(newActivities);
   };
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -55,10 +55,12 @@ export const ExtraCurricularEditor = () => {
   return (
     <div>
       <div className="flex items-center justify-between mb-8">
-        <h1 className="text-2xl font-bold">Extra-Curricular Editor</h1>
+        <h2 className="text-2xl font-bold flex items-center gap-2">
+          <ActivityIcon className="text-school-primary" /> Academic Activities
+        </h2>
         <button
           onClick={() => {
-            setEditing({ id: generateId(), name: '', description: '', category: categories[0], image: '' });
+            setEditing({ id: Date.now().toString(), name: '', description: '', image: '' }); // Removed category, using Date.now() for ID
             setIsNew(true);
           }}
           className="flex items-center gap-2 bg-school-primary text-white px-4 py-2 rounded-xl font-medium hover:bg-green-800"
