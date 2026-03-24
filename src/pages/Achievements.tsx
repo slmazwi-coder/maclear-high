@@ -44,7 +44,7 @@ const resultsData = {
     ]
   },
   "2023": {
-    overall: 100,
+    overall: 95.1,
     bachelor: 60,
     bachelorRate: 60,
     distinctions: 40,
@@ -59,7 +59,7 @@ const resultsData = {
     ]
   },
   "2022": {
-    overall: 100,
+    overall: 93.8,
     bachelor: 50,
     bachelorRate: 50,
     distinctions: 30,
