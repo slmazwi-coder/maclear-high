@@ -14,8 +14,6 @@ export const Footer = () => {
             </p>
             <div className="flex gap-4">
               <a href="https://www.facebook.com/profile.php?id=100057144321164" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors"><Facebook size={20} /></a>
-              <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors"><Twitter size={20} /></a>
-              <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors"><Instagram size={20} /></a>
             </div>
           </div>
 
@@ -40,11 +38,11 @@ export const Footer = () => {
           <div>
             <h4 className="text-lg font-bold mb-6 border-b border-white/20 pb-2">Quick Links</h4>
             <ul className="space-y-3 text-blue-200">
-              <li><a href="/about" className="hover:text-white transition-colors">About Our School</a></li>
-              <li><a href="/school-fees" className="hover:text-white transition-colors">School Fees</a></li>
-              <li><a href="/achievements" className="hover:text-white transition-colors">Hall of Fame</a></li>
-              <li><a href="/admissions" className="hover:text-white transition-colors">Apply Online</a></li>
-              <li><a href="/school-policy" className="hover:text-white transition-colors">School Policy</a></li>
+              <li><Link to="/about" className="hover:text-white transition-colors">About Our School</Link></li>
+              <li><Link to="/school-fees" className="hover:text-white transition-colors">School Fees</Link></li>
+              <li><Link to="/achievements" className="hover:text-white transition-colors">Hall of Fame</Link></li>
+              <li><Link to="/admissions" className="hover:text-white transition-colors">Apply Online</Link></li>
+              <li><Link to="/school-policy" className="hover:text-white transition-colors">School Policy</Link></li>
             </ul>
           </div>
 

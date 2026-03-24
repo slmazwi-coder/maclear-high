@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { SportResultBoard } from './SportResultBoard';
 
 const slides = [
@@ -101,12 +102,12 @@ export const Hero = () => {
             transition={{ delay: 0.4 }}
             className="mt-6 flex gap-4"
           >
-            <a href="/admissions" className="btn-primary bg-white text-school-primary hover:bg-gray-100">
+            <Link to="/admissions" className="btn-primary bg-white text-school-primary hover:bg-gray-100">
               Admissions 2026
-            </a>
-            <a href="/about" className="btn-primary border-2 border-white bg-transparent hover:bg-white/10">
+            </Link>
+            <Link to="/about" className="btn-primary border-2 border-white bg-transparent hover:bg-white/10">
               Learn More
-            </a>
+            </Link>
           </motion.div>
         </div>
 
