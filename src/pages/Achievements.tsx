@@ -3,70 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Trophy, Star, TrendingUp, BarChart3, Medal, Calendar, User, Award } from 'lucide-react';
 import { getHallOfFame, getResultsByYear, type HallOfFameEntry, type YearResults } from '../admin/utils/storage';
 
-const resultsData = {
-  "2025": {
-    overall: 97.2,
-    bachelor: 42,
-    bachelorRate: 42,
-    distinctions: 25,
-    wrote: 100,
-    subjects: [
-      { subject: "Mathematical Literacy", rate: 100 },
-      { subject: "English First Additional Language", rate: 100 },
-      { subject: "Life Sciences", rate: 100 },
-      { subject: "Tourism", rate: 100 },
-      { subject: "Business Studies", rate: 100 },
-      { subject: "Afrikaans Huistaal", rate: 100 },
-      { subject: "English Home Language", rate: 100 },
-      { subject: "Afrikaans EAT", rate: 100 },
-      { subject: "Life Orientation", rate: 100 },
-      { subject: "Agricultural Sciences", rate: 100 },
-      { subject: "Geography", rate: 100 },
-    ]
-  },
-  "2024": {
-    overall: 96.2,
-    bachelor: 53.8,
-    bachelorRate: 53.8,
-    distinctions: 35,
-    wrote: 100,
-    subjects: [
-      { subject: "English Home Language", rate: 100 },
-      { subject: "Afrikaans Huistaal", rate: 100 },
-      { subject: "Afrikaans EAT", rate: 100 },
-      { subject: "English FAL", rate: 100 },
-      { subject: "Mathematics Literacy", rate: 100 },
-      { subject: "Life Orientation", rate: 100 },
-      { subject: "Business Studies", rate: 100 },
-      { subject: "Agricultural Sciences", rate: 100 },
-      { subject: "Geography", rate: 100 },
-      { subject: "Tourism", rate: 100 },
-    ]
-  },
-  "2023": {
-    overall: 95.1,
-    bachelor: 60,
-    bachelorRate: 60,
-    distinctions: 40,
-    wrote: 100,
-    subjects: [
-      { subject: "Accounting", rate: 85.0 },
-      { subject: "Agricultural Sciences", rate: 92.5 },
-      { subject: "Business Studies", rate: 91.0 },
-      { subject: "Economics", rate: 89.5 },
-      { subject: "English FAL", rate: 97.0 },
-      { subject: "Geography", rate: 93.5 },
-    ]
-  },
-  "2022": {
-    overall: 93.8,
-    bachelor: 50,
-    bachelorRate: 50,
-    distinctions: 30,
-    wrote: 100,
-    subjects: []
-  }
-} as const;
+
 
 const bestEverStudents = [
   { name: "[NAME 1]", title: "National Top Achiever", year: "2018", image: "", desc: "Achieved excellence in Mathematics and Physical Sciences" },
